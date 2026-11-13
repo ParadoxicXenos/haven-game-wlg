@@ -13,7 +13,7 @@ config_version=5
 config/name="Game"
 run/main_scene="uid://b0edelq78t3rx"
 config/features=PackedStringArray("4.7", "Forward Plus")
-boot_splash/bg_color=Color(0.18204099, 0.00042872466, 0.3684593, 1)
+boot_splash/bg_color=Color(0, 0.41568628, 0, 1)
 config/icon="res://icon.svg"
 
 [display]
