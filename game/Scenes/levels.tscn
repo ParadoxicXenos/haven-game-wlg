@@ -9,7 +9,8 @@ size = Vector2(1919, 92)
 
 [node name="Levels" type="Node2D" unique_id=1159028874]
 
-[node name="Main" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
+[node name="Player" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
+position = Vector2(963, 539)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1104524643]
 physics_material_override = SubResource("PhysicsMaterial_g4v7s")
