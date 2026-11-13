@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
-[ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://character_body_2d.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/character_body_2d.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_8gbba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0f01"]
 size = Vector2(110, 170)
@@ -9,13 +9,13 @@ size = Vector2(110, 170)
 [node name="Main" type="Node2D" unique_id=591414065]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
-script = ExtResource("1_0xm2m")
+script = ExtResource("1_bo1nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=897094923]
 shape = SubResource("RectangleShape2D_u0f01")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1939305224]
-texture = ExtResource("2_h2yge")
+texture = ExtResource("2_8gbba")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1906680485]
 position_smoothing_enabled = true
