@@ -9,10 +9,12 @@ const JUMP_VELOCITY = -1000.0
 var xSpeed = 0
 var arrowSpeed : Vector2
 var slinging = false
-
+var reflected = Vector2(0,0)
+var collision_normal:Vector2
+var collision_point:Vector2
+var impact
 func _on_ready():
-	visible = true
-
+	pass
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
@@ -21,25 +23,22 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("left", "right")
-
-	if direction:
-		xSpeed += direction * SPEED
 
 	if !slinging:
-		xSpeed *= 0.9
-
+		var direction := Input.get_axis("left", "right")
+		if direction:
+			velocity.x += direction * SPEED
+		velocity.x *= 0.9
 	if is_on_floor():
 		canSling=true
 		slinging = false
 
 	if arrowSpeed != Vector2(0,0):
-		xSpeed = arrowSpeed.x * FLYMULT
+		velocity.x = arrowSpeed.x * FLYMULT
 		velocity.y = arrowSpeed.y * FLYMULT
-
-	velocity.x = move_toward(xSpeed, 0, SPEED)
 	arrowSpeed = Vector2(0,0)
-
+	var velo=velocity
+		
 	if canMove:
 		move_and_slide()
 <<<<<<< Updated upstream

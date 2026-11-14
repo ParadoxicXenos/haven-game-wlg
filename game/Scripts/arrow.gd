@@ -14,7 +14,10 @@ func _ready() -> void:
 	#arrowHead.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
+	if charBody.slinging:
+		charBody.canMove = false
+		
 	playerPos = charBody.global_position
 
 	if charBody.canSling:
@@ -35,7 +38,7 @@ func _process(delta: float) -> void:
 			arrowHead.rotation_degrees -= 90
 
 		if Input.is_action_just_released("click"):
-			charBody.slinging = true
+			charBody.slinging = false
 			var mouseVec= OGmousePos-get_global_mouse_position()
 			print("RELEASED")
 			arrowLine.visible = false
