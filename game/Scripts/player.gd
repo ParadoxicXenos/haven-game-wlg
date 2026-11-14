@@ -4,7 +4,7 @@ var canSling = true
 var canMove = true
 const SPEED = 160.0
 const GRAVITY = 2000.0
-const FLYMULT = 4.0
+const FLYMULT = 3.0
 const JUMP_VELOCITY = -1000.0
 var xSpeed = 0
 var arrowSpeed : Vector2
