@@ -16,6 +16,7 @@ var impact
 func _on_ready():
 	pass
 func _physics_process(delta: float) -> void:
+	print(slinging)
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
 	# Handle jump.
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x += direction * SPEED
 		velocity.x *= 0.9
+
 	if is_on_floor():
 		canSling=true
 		slinging = false
@@ -38,20 +40,21 @@ func _physics_process(delta: float) -> void:
 		velocity.y = arrowSpeed.y * FLYMULT
 	arrowSpeed = Vector2(0,0)
 	var velo=velocity
-		
+	
 	if canMove:
 		move_and_slide()
 		
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider is StaticBody2D:
-			collision_normal = collision.get_normal()
-			collision_point = collision.get_position()
-			impact = (velo.x * collision_normal.x)+(velo.y*collision_normal.y)
-			reflected = Vector2(velo.x-(1.8*impact*collision_normal.x),velo.y-(1.8*impact*collision_normal.y))
-			velocity=reflected
-			reflected = Vector2(0,0)
-			print(velocity)
-			if velocity.y >-105&& velocity.y < 0:
-				velocity.y = 0
+	if slinging :
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is StaticBody2D:
+				collision_normal = collision.get_normal()
+				collision_point = collision.get_position()
+				impact = (velo.x * collision_normal.x)+(velo.y*collision_normal.y)
+				reflected = Vector2(velo.x-(1.8*impact*collision_normal.x),velo.y-(1.8*impact*collision_normal.y))
+				velocity=reflected
+				reflected = Vector2(0,0)
+				print(velocity)
+				if velocity.y >-105&& velocity.y < 0:
+					velocity.y = 0
