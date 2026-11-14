@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if slinging && $Timer.time_left == 0.0:
 		slinging = false
 
-	if arrowSpeed != Vector2(0,0):
+	if arrowSpeed != Vector2(0,0) && $Timer.time_left > 0:
 		velocity.x = arrowSpeed.x * FLYMULT
 		velocity.y = arrowSpeed.y * FLYMULT
 	arrowSpeed = Vector2(0,0)
