@@ -9,10 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dvb8mluxh66lj" path="res://Art/anim3.svg" id="8_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cccquskxqiyr4" path="res://Art/anim4.svg" id="9_7dp3o"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgx5e"]
-radius = 67.0
-height = 178.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
 animations = [{
 "frames": [{
@@ -44,13 +40,12 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
 [node name="Player" type="Node2D" unique_id=591414065]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
 script = ExtResource("1_bo1nx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=897094923]
-shape = SubResource("CapsuleShape2D_xgx5e")
 
 [node name="arrow" parent="CharacterBody2D" unique_id=775735066 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
 parent = NodePath("../..")
@@ -69,3 +64,6 @@ animation = &"Roll"
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1719479250]
 wait_time = 0.5
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1784460874]
+shape = SubResource("CapsuleShape2D_g4v7s")

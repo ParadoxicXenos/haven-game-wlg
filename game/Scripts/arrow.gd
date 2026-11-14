@@ -52,34 +52,34 @@ func _process(delta: float) -> void:
 				charBody.canSling = false
 		
 	if charBody.controller == true:
-			
-			if Input.is_action_just_pressed("LT"):
-				print("LT")
-				arrowLine.set_point_position(0,Vector2(0,0))
+			if charBody.canSling == true:
+				if Input.is_action_just_pressed("LT"):
+					print("LT")
+					arrowLine.set_point_position(0,Vector2(0,0))
 
-			if Input.is_action_pressed("LT"):
-				charBody.canMove = false
-				arrowLine.visible = true
-				arrowHead.visible = true
-				var controllerInput = Input.get_vector("Rleft","Rright","Rup","Rdown")
-				controllerInput *= stickSpeed
-				print("VEC",controllerInput)
-				arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
-				arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
-				arrowHead.look_at(playerPos)
-				arrowHead.rotation_degrees -= 90
+				if Input.is_action_pressed("LT"):
+					charBody.canMove = false
+					arrowLine.visible = true
+					arrowHead.visible = true
+					var controllerInput = Input.get_vector("Rleft","Rright","Rup","Rdown")
+					controllerInput *= stickSpeed
+					print("VEC",controllerInput)
+					arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
+					arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
+					arrowHead.look_at(playerPos)
+					arrowHead.rotation_degrees -= 90
 
-			if Input.is_action_just_released("LT"):
-				charBody.slinging = true
-				var controllerInput = Input.get_vector("Rleft","Rright","Rup","Rdown")
-				controllerInput *= stickSpeed
-				print("RELEASED")
-				arrowLine.visible = false
-				arrowHead.visible = false
-				charBody.arrowSpeed = controllerInput
-				print("controller input:",controllerInput)
-				print("velocity:",charBody.velocity)
-				arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
-				arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
-				charBody.canMove = true
-				charBody.canSling = false
+				if Input.is_action_just_released("LT"):
+					charBody.slinging = true
+					var controllerInput = Input.get_vector("Rleft","Rright","Rup","Rdown")
+					controllerInput *= stickSpeed
+					print("RELEASED")
+					arrowLine.visible = false
+					arrowHead.visible = false
+					charBody.arrowSpeed = controllerInput
+					print("controller input:",controllerInput)
+					print("velocity:",charBody.velocity)
+					arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
+					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
+					charBody.canMove = true
+					charBody.canSling = false
