@@ -48,10 +48,10 @@ func _physics_process(delta: float) -> void:
 		if collider is StaticBody2D:
 			collision_normal = collision.get_normal()
 			collision_point = collision.get_position()
-			print("normal",collision_normal)
-			print("point",collision_point)
 			impact = (velo.x * collision_normal.x)+(velo.y*collision_normal.y)
 			reflected = Vector2(velo.x-(1.8*impact*collision_normal.x),velo.y-(1.8*impact*collision_normal.y))
 			velocity=reflected
 			reflected = Vector2(0,0)
-	
+			print(velocity)
+			if velocity.y >-105&& velocity.y < 0:
+				velocity.y = 0
