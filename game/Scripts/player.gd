@@ -42,3 +42,20 @@ func _physics_process(delta: float) -> void:
 
 	if canMove:
 		move_and_slide()
+<<<<<<< Updated upstream
+=======
+		
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is StaticBody2D:
+			collision_normal = collision.get_normal()
+			collision_point = collision.get_position()
+			print("normal",collision_normal)
+			print("point",collision_point)
+			impact = (velo.x * collision_normal.x)+(velo.y*collision_normal.y)
+			reflected = Vector2(velo.x-(1.8*impact*collision_normal.x),velo.y-(1.8*impact*collision_normal.y))
+			velocity=reflected
+			reflected = Vector2(0,0)
+	
+>>>>>>> Stashed changes
