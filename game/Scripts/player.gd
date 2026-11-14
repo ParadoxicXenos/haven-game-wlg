@@ -1,4 +1,5 @@
 extends CharacterBody2D
+##CHARACTER BODY IS 0, and rigidbody =1
 var canSling = true
 var canMove = true
 const SPEED = 160.0
@@ -15,7 +16,6 @@ var impact
 func _on_ready():
 	pass
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
 	# Handle jump.
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		canSling=true
 		slinging = false
+
 	if arrowSpeed != Vector2(0,0):
 		velocity.x = arrowSpeed.x * FLYMULT
 		velocity.y = arrowSpeed.y * FLYMULT

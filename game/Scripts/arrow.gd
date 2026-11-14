@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 		charBody.canMove = false
 		
 	playerPos = charBody.global_position
+
 	if charBody.canSling:
 		if Input.is_action_just_pressed("click"):
 			OGmousePos = get_global_mouse_position()
