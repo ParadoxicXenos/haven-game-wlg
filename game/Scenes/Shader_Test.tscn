@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://wrcrcian1rkd"]
+
+[ext_resource type="PackedScene" uid="uid://b2c5qqcpt6vw1" path="res://Scenes/levels.tscn" id="1_7vbfr"]
+[ext_resource type="Shader" uid="uid://d312pc8drsnlv" path="res://Shaders/ShaderTest.gdshader" id="2_2fgk4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0f01"]
+shader = ExtResource("2_2fgk4")
+shader_parameter/movementMag = 0.0
+
+[node name="ShaderTest" type="Node2D" unique_id=259047168]
+
+[node name="Levels" parent="." unique_id=1159028874 instance=ExtResource("1_7vbfr")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1904711587]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=451561661]
+material = SubResource("ShaderMaterial_u0f01")
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 0.994
+offset_right = 0.9199219
+offset_bottom = 0.47998047
