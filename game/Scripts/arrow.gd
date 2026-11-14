@@ -14,11 +14,9 @@ func _ready() -> void:
 	#arrowHead.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if charBody.slinging:
-		charBody.visible = false
-		
+func _process(delta: float) -> void:	
 	playerPos = charBody.global_position
+
 	if charBody.canSling:
 		if Input.is_action_just_pressed("click"):
 			OGmousePos = get_global_mouse_position()

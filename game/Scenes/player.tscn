@@ -1,17 +1,42 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
+[ext_resource type="Script" uid="uid://decymdlh5nn0y" path="res://Scenes/actual_palyer.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 68.06615
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgx5e"]
 radius = 67.0
 height = 178.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 67.0
+[node name="Player" type="Node2D" unique_id=591414065 node_paths=PackedStringArray("characterbod", "regidbod")]
+script = ExtResource("1_6t5aa")
+characterbod = NodePath("CharacterBody2D")
+regidbod = NodePath("RigidBody2D")
 
-[node name="Player" type="Node2D" unique_id=591414065]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=521229892]
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+
+[node name="arrow" parent="RigidBody2D" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
+parent = NodePath("../..")
+charBody = NodePath("../../CharacterBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1939305224]
+texture = ExtResource("2_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D" unique_id=1906680485]
+position_smoothing_enabled = true
+position_smoothing_speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=210566860]
+shape = SubResource("CircleShape2D_g4v7s")
+disabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
 script = ExtResource("1_bo1nx")
@@ -19,18 +44,13 @@ script = ExtResource("1_bo1nx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=897094923]
 shape = SubResource("CapsuleShape2D_xgx5e")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1939305224]
-texture = ExtResource("2_8gbba")
-
-[node name="arrow" parent="CharacterBody2D" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
+[node name="arrow" parent="CharacterBody2D" unique_id=775735066 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
 parent = NodePath("../..")
 charBody = NodePath("..")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1906680485]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=152407238]
+texture = ExtResource("2_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2058571565]
 position_smoothing_enabled = true
 position_smoothing_speed = 100.0
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2096344584]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1576708589]
-shape = SubResource("CircleShape2D_g4v7s")
