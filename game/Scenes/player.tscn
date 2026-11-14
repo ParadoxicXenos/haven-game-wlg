@@ -15,28 +15,7 @@ radius = 68.06615
 radius = 67.0
 height = 178.0
 
-[node name="Player" type="Node2D" unique_id=591414065 node_paths=PackedStringArray("characterbod", "regidbod")]
-script = ExtResource("1_6t5aa")
-characterbod = NodePath("CharacterBody2D")
-regidbod = NodePath("RigidBody2D")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=521229892]
-physics_material_override = SubResource("PhysicsMaterial_g4v7s")
-
-[node name="arrow" parent="RigidBody2D" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
-parent = NodePath("../..")
-charBody = NodePath("../../CharacterBody2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1939305224]
-texture = ExtResource("2_8gbba")
-
-[node name="Camera2D" type="Camera2D" parent="RigidBody2D" unique_id=1906680485]
-position_smoothing_enabled = true
-position_smoothing_speed = 100.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=210566860]
-shape = SubResource("CircleShape2D_g4v7s")
-disabled = true
+[node name="Player" type="Node2D" unique_id=591414065]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
 script = ExtResource("1_bo1nx")
@@ -53,4 +32,4 @@ texture = ExtResource("2_8gbba")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2058571565]
 position_smoothing_enabled = true
-position_smoothing_speed = 100.0
+position_smoothing_speed = 10.0
