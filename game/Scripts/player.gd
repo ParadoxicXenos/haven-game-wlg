@@ -41,8 +41,6 @@ func _physics_process(delta: float) -> void:
 		
 	if canMove:
 		move_and_slide()
-<<<<<<< Updated upstream
-=======
 		
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -57,4 +55,3 @@ func _physics_process(delta: float) -> void:
 			velocity=reflected
 			reflected = Vector2(0,0)
 	
->>>>>>> Stashed changes
