@@ -1,6 +1,6 @@
 extends CharacterBody2D
-
-
+var canSling = true
+var canMove = true
 const SPEED = 160.0
 const GRAVITY = 2000.0
 const FLYMULT = 4.0
@@ -22,9 +22,13 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		xSpeed += direction * SPEED
 	if is_on_floor():
+		canSling=true
 		xSpeed *= 0.9
-	xSpeed += arrowSpeed.x * FLYMULT
-	velocity.y += arrowSpeed.y * FLYMULT
+	if arrowSpeed != Vector2(0,0):
+		xSpeed = arrowSpeed.x * FLYMULT
+		velocity.y = arrowSpeed.y * FLYMULT	
 	velocity.x = move_toward(xSpeed, 0, SPEED)
 	arrowSpeed = Vector2(0,0)
-	move_and_slide()
+	if canMove:
+		move_and_slide()
+	
