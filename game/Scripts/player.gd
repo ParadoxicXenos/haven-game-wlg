@@ -9,9 +9,7 @@ var xSpeed = 0
 var arrowSpeed : Vector2
 var slinging = false
 func _on_ready():
-	$"../RigidBody2D".visible= false
-	$"../RigidBody2D.CollisionShape2D".disabled= true
-
+	pass
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,11 +29,10 @@ func _physics_process(delta: float) -> void:
 		slinging = false
 	if arrowSpeed != Vector2(0,0):
 		xSpeed = arrowSpeed.x * FLYMULT
-		velocity.y = arrowSpeed.y * FLYMULT	
+		velocity.y = arrowSpeed.y * FLYMULT
 	velocity.x = move_toward(xSpeed, 0, SPEED)
 	arrowSpeed = Vector2(0,0)
 	if canMove:
 		move_and_slide()
-		
 
 	
