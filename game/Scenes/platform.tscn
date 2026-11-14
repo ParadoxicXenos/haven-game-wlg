@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c5ir2p247yl0x"]
 
+[ext_resource type="Texture2D" uid="uid://dulj3s1yhqred" path="res://Art/backdrop5 (1).svg" id="1_n5262"]
+[ext_resource type="Texture2D" uid="uid://bufq3dl5f8o6i" path="res://Art/backdrop4.svg" id="2_mrs20"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
 [node name="Platform" type="Node2D" unique_id=1254454245]
@@ -10,3 +13,15 @@ scale = Vector2(31.515444, 7.9031615)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=411717427]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=375712848]
+
+[node name="Backdrop5(1)" type="Sprite2D" parent="StaticBody2D" unique_id=425185759]
+position = Vector2(-0.12692189, 7.0857716)
+scale = Vector2(0.079413995, 0.34889945)
+texture = ExtResource("1_n5262")
+
+[node name="Backdrop4" type="Sprite2D" parent="StaticBody2D" unique_id=1337703389]
+position = Vector2(1.1175871e-08, -7.71843)
+scale = Vector2(0.07997902, 0.29169175)
+texture = ExtResource("2_mrs20")
