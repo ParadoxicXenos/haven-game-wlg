@@ -3,15 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b0edelq78t3rx" path="res://Scenes/player.tscn" id="1_yh33m"]
 [ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_xgx5e"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
-
 [node name="Levels" type="Node2D" unique_id=1159028874]
 
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
-position = Vector2(963, 539)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1104524643]
-physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+position = Vector2(987, 918)
 
 [node name="Platform2" parent="." unique_id=713844301 instance=ExtResource("2_xgx5e")]
 position = Vector2(990, 1082)
