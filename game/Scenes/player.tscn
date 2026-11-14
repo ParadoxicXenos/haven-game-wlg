@@ -1,22 +1,65 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
 [ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/character_body_2d.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://bq5og35i2dk4h" path="res://Shaders/SlingManager.gd" id="1_gymyn"]
 [ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://cc0e5i1gjodnn" path="res://Shaders/RidgedPhysicsPlayer.gd" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://domnqwl5hpo86" path="res://Art/Player/roll1.svg" id="5_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://k3iaall7xvvw" path="res://Art/Player/roll2.svg" id="6_gymyn"]
+[ext_resource type="Texture2D" uid="uid://djjwqpgca67mb" path="res://Art/Player/anim1.svg" id="7_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://bk4bogurwqgv3" path="res://Art/Player/anim2.svg" id="8_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://xx2en3icera2" path="res://Art/Player/anim3.svg" id="9_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://r2yak3w55bv7" path="res://Art/Player/anim4.svg" id="10_h4iuc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgx5e"]
 radius = 67.0
 height = 178.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vgqql"]
+friction = 0.0
 bounce = 0.85
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
-radius = 107.0
-height = 214.0
+radius = 64.0
+height = 128.0
 
-[node name="Player" type="Node2D" unique_id=591414065]
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0f01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tx1dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gymyn")
+}],
+"loop": 1,
+"name": &"Sling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pu2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ukyrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7dp3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h4iuc")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[node name="Player" type="Node2D" unique_id=591414065 node_paths=PackedStringArray("player", "sling")]
+position = Vector2(961, 543)
+script = ExtResource("1_gymyn")
+player = NodePath("Player/playerTransform")
+sling = NodePath("PlayerRigidMovement/slingTransform")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=837976391]
 script = ExtResource("1_bo1nx")
@@ -25,21 +68,35 @@ script = ExtResource("1_bo1nx")
 shape = SubResource("CapsuleShape2D_xgx5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1939305224]
+visible = false
 texture = ExtResource("2_8gbba")
 
-[node name="arrow" parent="Player" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
-parent = NodePath("../..")
-charBody = NodePath("..")
+[node name="playerTransform" type="RemoteTransform2D" parent="Player" unique_id=1939038608]
+remote_path = NodePath("../../AnimatedSprite2D")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1906680485]
-position_smoothing_enabled = true
-position_smoothing_speed = 100.0
-
-[node name="PlayerRidgedMovement" type="RigidBody2D" parent="." unique_id=147900092]
+[node name="PlayerRigidMovement" type="RigidBody2D" parent="." unique_id=147900092]
+mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_vgqql")
 can_sleep = false
+lock_rotation = true
 script = ExtResource("4_vgqql")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRidgedMovement" unique_id=337202053]
-position = Vector2(248, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRigidMovement" unique_id=337202053]
 shape = SubResource("CapsuleShape2D_6t5aa")
+
+[node name="slingTransform" type="RemoteTransform2D" parent="PlayerRigidMovement" unique_id=1056356505]
+remote_path = NodePath("../../AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1003694649]
+sprite_frames = SubResource("SpriteFrames_u0f01")
+animation = &"Walk"
+frame_progress = 0.02605566
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1906680485]
+scale = Vector2(1.5845244, 1.5845244)
+position_smoothing_speed = 100.0
+
+[node name="arrow" parent="AnimatedSprite2D" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody", "rigidBody") instance=ExtResource("3_6t5aa")]
+parent = NodePath("../..")
+charBody = NodePath("../../Player")
+rigidBody = NodePath("../../PlayerRigidMovement")
