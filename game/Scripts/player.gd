@@ -21,7 +21,8 @@ func _ready():
 	print("controller:",controller)
 func _physics_process(delta: float) -> void:
 	if slinging == true:
-		$CollisionShape2D.shape.height = 67.0
+		$CollisionShape2D.shape.height = 70.0
+		$CollisionShape2D.shape.radius = 70.0
 		$AnimatedSprite2D.play("Roll")
 		if velocity.x < 0:
 			$AnimatedSprite2D.rotation +=1
