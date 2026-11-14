@@ -16,6 +16,7 @@ var impact
 var controller = false
 var direction: float
 func _ready():
+	Global.player = self
 	if Input.get_connected_joypads().size() > 0:
 		controller = true
 	print("controller:",controller)
@@ -29,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		elif velocity.x > 0:
 			$AnimatedSprite2D.rotation -=1
 			$AnimatedSprite2D.flip_h = false
+	else : $AnimatedSprite2D.play("Walk")
+		
 	print("slinging",slinging)
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
