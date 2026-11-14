@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://boaaqfv8uvy4p"]
 
 [ext_resource type="Script" uid="uid://s6w31qosn3c" path="res://Scripts/click_test.gd" id="1_b0omh"]
+[ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_saiew"]
 
 [node name="ClickTest" type="Node2D" unique_id=1751820851]
 script = ExtResource("1_b0omh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1250969089]
+position = Vector2(644, 378)
+texture = ExtResource("2_saiew")

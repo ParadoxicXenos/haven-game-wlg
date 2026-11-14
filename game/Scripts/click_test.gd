@@ -13,8 +13,11 @@ func _process(delta: float) -> void:
 		OGmousePos = get_global_mouse_position()
 		print(OGmousePos)
 	elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
-		var MouseDistance= OGmousePos-get_global_mouse_position()
-		print(MouseDistance)
+		var mouseVec= OGmousePos-get_global_mouse_position()
+		print(mouseVec)
+		$Sprite2D.position = OGmousePos + mouseVec
 	if Input.is_action_just_released("click"):
-		var MouseDistance= OGmousePos-get_global_mouse_position()
-		print(MouseDistance,"RELEASED")
+		var mouseVec= OGmousePos-get_global_mouse_position()
+		print(mouseVec,"RELEASED")
+		$Sprite2D.position = OGmousePos + mouseVec
+		
