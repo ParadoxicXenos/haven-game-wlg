@@ -7,7 +7,7 @@ const arrowMult = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	arrowLine.visible = false
-
+	#$arrowHead.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,11 +16,14 @@ func _process(delta: float) -> void:
 		print(OGmousePos)
 		arrowLine.set_point_position(0,Vector2(0,0))
 		
+		
 	elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
 		arrowLine.visible = true
 		var mouseVec= OGmousePos-get_global_mouse_position()
 		arrowLine.set_point_position(1,Vector2(0,0)+mouseVec*arrowMult)
-		##$Sprite2D.position = OGmousePos + mouseVec
+		$arrowHead.position = Vector2(0,0)+mouseVec*arrowMult
+		$arrowHead.rotation = $arrowHead.get_angle_to(Vector2(0,0))
+
 	if Input.is_action_just_released("click"):
 		var mouseVec= OGmousePos-get_global_mouse_position()
 		print("RELEASED")
@@ -28,3 +31,5 @@ func _process(delta: float) -> void:
 		charBody.arrowSpeed = mouseVec
 		print("mousevec:",mouseVec)
 		print("velocity:",charBody.velocity)
+		$arrowHead.position = get_global_mouse_position()
+		$arrowHead.rotation = $arrowHead.get_angle_to(Vector2(0,0))

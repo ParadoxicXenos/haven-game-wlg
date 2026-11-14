@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhxocmkqydnbo"]
 
 [ext_resource type="Script" uid="uid://s6w31qosn3c" path="res://Scripts/arrow.gd" id="1_2u0bd"]
+[ext_resource type="Texture2D" uid="uid://bphe0ygnu6ty4" path="res://Art/Arrow Head.svg" id="2_h5x2m"]
 
 [node name="arrow" type="Node2D" unique_id=1599074295]
 script = ExtResource("1_2u0bd")
@@ -8,3 +9,6 @@ script = ExtResource("1_2u0bd")
 [node name="arrowLine" type="Line2D" parent="." unique_id=765521108]
 position = Vector2(0, -1)
 points = PackedVector2Array(0, 1, 386, 292)
+
+[node name="arrowHead" type="Sprite2D" parent="." unique_id=1446275543]
+texture = ExtResource("2_h5x2m")
