@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c5ir2p247yl0x"]
 
+[ext_resource type="Texture2D" uid="uid://bj48ob8lq6roq" path="res://Art/backdrop7 (1).svg" id="1_mrs20"]
 [ext_resource type="Texture2D" uid="uid://dulj3s1yhqred" path="res://Art/backdrop5 (1).svg" id="1_n5262"]
 [ext_resource type="Texture2D" uid="uid://bufq3dl5f8o6i" path="res://Art/backdrop4.svg" id="2_mrs20"]
 
@@ -13,6 +14,13 @@ scale = Vector2(31.515444, 7.9031615)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=411717427]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Backdrop7(1)" type="Sprite2D" parent="StaticBody2D" unique_id=305150826]
+position = Vector2(-5.2989893, -8.098023)
+rotation = -1.2656856
+scale = Vector2(0.082632914, 0.10093999)
+skew = 1.0686041
+texture = ExtResource("1_mrs20")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=375712848]
 
