@@ -29,3 +29,18 @@ position = Vector2(2585, 899)
 [node name="Platform5" parent="." unique_id=1535937480 instance=ExtResource("2_xgx5e")]
 position = Vector2(1753, 996)
 rotation = 1.5707964
+
+[node name="Platform6" parent="." unique_id=163437668 instance=ExtResource("2_xgx5e")]
+position = Vector2(4897, 876)
+
+[node name="Platform7" parent="." unique_id=93142026 instance=ExtResource("2_xgx5e")]
+position = Vector2(5833, 539)
+rotation = -0.7853982
+
+[node name="Platform8" parent="." unique_id=1287710992 instance=ExtResource("2_xgx5e")]
+position = Vector2(5653, -928)
+rotation = -0.7853982
+
+[node name="Platform9" parent="." unique_id=534830345 instance=ExtResource("2_xgx5e")]
+position = Vector2(7976, -586)
+scale = Vector2(4.1360636, 0.6259681)
