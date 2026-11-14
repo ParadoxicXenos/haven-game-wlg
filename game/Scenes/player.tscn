@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
 [ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/player.gd" id="1_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://vuvwa505m58e" path="res://Art/roll1.svg" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://r3cjc7e3f2tw" path="res://Art/roll2.svg" id="5_tx1dd"]
@@ -56,10 +55,6 @@ shape = SubResource("CapsuleShape2D_xgx5e")
 [node name="arrow" parent="CharacterBody2D" unique_id=775735066 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
 parent = NodePath("../..")
 charBody = NodePath("..")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=152407238]
-visible = false
-texture = ExtResource("2_8gbba")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2058571565]
 position_smoothing_enabled = true

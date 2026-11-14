@@ -13,22 +13,34 @@ var reflected = Vector2(0,0)
 var collision_normal:Vector2
 var collision_point:Vector2
 var impact
-func _on_ready():
-	pass
+var controller = false
+var direction: float
+func _ready():
+	if Input.get_connected_joypads().size() > 0:
+		controller = true
+	print("controller:",controller)
 func _physics_process(delta: float) -> void:
-	print(slinging)
+	print("slinging",slinging)
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("up") and is_on_floor():
+	if Input.is_action_just_pressed("up") and is_on_floor() || Input.is_action_just_pressed("Lup") and is_on_floor() || Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 
 	if !slinging:
-		var direction := Input.get_axis("left", "right")
+		if controller == true:
+			direction = Input.get_axis("Lleft", "Lright")
+		elif controller == false:
+			direction = Input.get_axis("left", "right") 
 		if direction:
 			velocity.x += direction * SPEED
+			$AnimatedSprite2D.play("Walk")
+			if direction < 0:
+				$AnimatedSprite2D.flip_h = true
+			elif direction > 0:
+				$AnimatedSprite2D.flip_h = false
 		velocity.x *= 0.9
 
 	if is_on_floor():
