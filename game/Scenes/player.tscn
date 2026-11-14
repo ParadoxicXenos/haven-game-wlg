@@ -64,8 +64,7 @@ position_smoothing_speed = 10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=350821104]
 scale = Vector2(0.6102941, 0.61029416)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"Walk"
-frame_progress = 0.9105017
+animation = &"Roll"
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1719479250]
 wait_time = 0.5

@@ -20,6 +20,15 @@ func _ready():
 		controller = true
 	print("controller:",controller)
 func _physics_process(delta: float) -> void:
+	if slinging == true:
+		$CollisionShape2D.shape.height = 67.0
+		$AnimatedSprite2D.play("Roll")
+		if velocity.x < 0:
+			$AnimatedSprite2D.rotation +=1
+			$AnimatedSprite2D.flip_h = true
+		elif velocity.x > 0:
+			$AnimatedSprite2D.rotation -=1
+			$AnimatedSprite2D.flip_h = false
 	print("slinging",slinging)
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
@@ -30,6 +39,9 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 
 	if !slinging:
+		$AnimatedSprite2D.rotation=0
+		$CollisionShape2D.shape.height = 178.0
+		$CollisionShape2D.shape.radius = 67.0
 		if controller == true:
 			direction = Input.get_axis("Lleft", "Lright")
 		elif controller == false:
