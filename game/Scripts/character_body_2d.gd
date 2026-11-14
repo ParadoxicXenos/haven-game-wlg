@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 160.0
 const GRAVITY = 2000.0
+const FLYMULT = 4.0
 const JUMP_VELOCITY = -1000.0
 var xSpeed = 0
 var arrowSpeed : Vector2
@@ -20,9 +21,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		xSpeed += direction * SPEED
-	xSpeed *= 0.9
-	xSpeed += arrowSpeed.x * 10
-	velocity.y += arrowSpeed.y * 10
+	if is_on_floor():
+		xSpeed *= 0.9
+	xSpeed += arrowSpeed.x * FLYMULT
+	velocity.y += arrowSpeed.y * FLYMULT
 	velocity.x = move_toward(xSpeed, 0, SPEED)
 	arrowSpeed = Vector2(0,0)
 	move_and_slide()

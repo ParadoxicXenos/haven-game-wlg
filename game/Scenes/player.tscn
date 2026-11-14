@@ -20,7 +20,7 @@ texture = ExtResource("2_8gbba")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1906680485]
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position_smoothing_speed = 100.0
 
 [node name="arrow" parent="CharacterBody2D/Camera2D" unique_id=1599074295 node_paths=PackedStringArray("parent", "charBody") instance=ExtResource("3_6t5aa")]
 parent = NodePath("../../..")
