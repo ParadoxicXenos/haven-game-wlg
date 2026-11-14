@@ -3,6 +3,7 @@ extends Node2D
 var OGmousePos
 const arrowMult = 0.5
 @onready var arrowLine = $arrowLine
+@onready var arrowHead = $arrowHead
 @export var charBody : CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var playerPos = charBody.global_position
 	if charBody.canSling:
 		if Input.is_action_just_pressed("click"):
 			OGmousePos = get_global_mouse_position()
@@ -21,19 +23,20 @@ func _process(delta: float) -> void:
 		elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
 			charBody.canMove = false
 			arrowLine.visible = true
+			arrowHead.visible = true
 			var mouseVec= OGmousePos-get_global_mouse_position()
 			arrowLine.set_point_position(1,Vector2(0,0)+mouseVec*arrowMult)
-			$arrowHead.position = Vector2(0,0)+mouseVec*arrowMult
-			$arrowHead.rotation = $arrowHead.get_angle_to(Vector2(0,0))
+			arrowHead.position = Vector2(0,0)+mouseVec*arrowMult
+			arrowHead.look_at(playerPos)
+			arrowHead.rotation_degrees -= 90
 
 		if Input.is_action_just_released("click"):
 			var mouseVec= OGmousePos-get_global_mouse_position()
 			print("RELEASED")
 			arrowLine.visible = false
+			arrowHead.visible = false
 			charBody.arrowSpeed = mouseVec
 			print("mousevec:",mouseVec)
 			print("velocity:",charBody.velocity)
-			$arrowHead.position = get_global_mouse_position()
-			$arrowHead.global_rotation += $arrowHead.get_angle_to(Vector2(0,0))
 			charBody.canMove = true
 			charBody.canSling = false

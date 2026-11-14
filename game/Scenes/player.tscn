@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0f01"]
-size = Vector2(110, 170)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgx5e"]
+radius = 67.0
+height = 178.0
 
 [node name="Player" type="Node2D" unique_id=591414065]
 
@@ -13,7 +14,7 @@ size = Vector2(110, 170)
 script = ExtResource("1_bo1nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=897094923]
-shape = SubResource("RectangleShape2D_u0f01")
+shape = SubResource("CapsuleShape2D_xgx5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1939305224]
 texture = ExtResource("2_8gbba")

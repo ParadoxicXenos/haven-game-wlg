@@ -31,4 +31,6 @@ func _physics_process(delta: float) -> void:
 	arrowSpeed = Vector2(0,0)
 	if canMove:
 		move_and_slide()
+		
+
 	
