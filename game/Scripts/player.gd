@@ -31,8 +31,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x += direction * SPEED
 		velocity.x *= 0.9
 
-	if is_on_floor():
-		canSling=true
+	if is_on_floor() :
+		canSling = true
+		
+	if slinging && $Timer.time_left == 0.0:
 		slinging = false
 
 	if arrowSpeed != Vector2(0,0):
@@ -43,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	
 	if canMove:
 		move_and_slide()
+		
+	if ! slinging :
+		$Timer.start()
 		
 	if slinging :
 		for i in range(get_slide_collision_count()):
@@ -58,3 +63,6 @@ func _physics_process(delta: float) -> void:
 				print(velocity)
 				if velocity.y >-105&& velocity.y < 0:
 					velocity.y = 0
+				$Timer.start()
+				
+	print($Timer.time_left)
