@@ -13,6 +13,7 @@ func _on_ready():
 	$"../RigidBody2D.CollisionShape2D".disabled= true
 
 func _physics_process(delta: float) -> void:
+	print(slinging)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta

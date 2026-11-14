@@ -45,3 +45,4 @@ func _process(delta: float) -> void:
 			arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
 			charBody.canMove = true
 			charBody.canSling = false
+			charBody.slinging = true
