@@ -57,6 +57,7 @@ parent = NodePath("../..")
 charBody = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2058571565]
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -64,4 +65,8 @@ position_smoothing_speed = 10.0
 scale = Vector2(0.6102941, 0.61029416)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"Walk"
-frame_progress = 0.11389911
+frame_progress = 0.9105017
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1719479250]
+wait_time = 0.5
+one_shot = true
