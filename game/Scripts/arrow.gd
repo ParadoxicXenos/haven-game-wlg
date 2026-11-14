@@ -20,11 +20,11 @@ func _process(delta: float) -> void:
 		arrowLine.visible = true
 		var mouseVec= OGmousePos-get_global_mouse_position()
 		arrowLine.set_point_position(1,Vector2(0,0)+mouseVec*arrowMult)
-		print(mouseVec)
 		##$Sprite2D.position = OGmousePos + mouseVec
 	if Input.is_action_just_released("click"):
 		var mouseVec= OGmousePos-get_global_mouse_position()
-		print(mouseVec,"RELEASED")
+		print("RELEASED")
 		arrowLine.visible = false
-		charBody.velocity -= mouseVec
-		
+		charBody.arrowSpeed = mouseVec
+		print("mousevec:",mouseVec)
+		print("velocity:",charBody.velocity)
