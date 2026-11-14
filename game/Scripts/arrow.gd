@@ -6,7 +6,7 @@ const arrowMult = 0.5
 @export var charBody : CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	arrowLine.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
