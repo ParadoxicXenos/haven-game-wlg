@@ -46,7 +46,7 @@ position = Vector2(2063, 13)
 position = Vector2(2266, 5)
 
 [node name="Ded_floor4" parent="Platform2/Ded_floor/Ded_floor" unique_id=152351457 instance=ExtResource("4_lgosu")]
-position = Vector2(2483, -2)
+position = Vector2(2471, 5)
 
 [node name="Platform3" parent="." unique_id=89931538 instance=ExtResource("3_styii")]
 position = Vector2(5467, 826)
