@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.41568628, 0, 1)
 config/icon="res://icon.svg"
 
-[autoload]
-
-Global="*uid://y27m5mugrv6w"
-
 [display]
 
 window/size/viewport_width=1920
@@ -132,3 +128,10 @@ LT={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+player_move_dir={
+"type": "vec2",
+"value": Vector2(0, 0)
+}

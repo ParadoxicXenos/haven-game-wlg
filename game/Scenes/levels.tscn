@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b2c5qqcpt6vw1"]
 
+[ext_resource type="PackedScene" uid="uid://ds0qq0c38lkx8" path="res://Scenes/Shader_Test.tscn" id="1_3akqy"]
 [ext_resource type="PackedScene" uid="uid://b0edelq78t3rx" path="res://Scenes/player.tscn" id="1_yh33m"]
 [ext_resource type="Script" path="res://Shaders/SlingManager.gd" id="2_uusmb"]
 [ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_xgx5e"]
@@ -8,6 +9,8 @@
 
 [node name="Levels" type="Node2D" unique_id=1159028874]
 script = SubResource("GDScript_xgx5e")
+
+[node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("1_3akqy")]
 
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
 position = Vector2(963, 539)
@@ -41,6 +44,14 @@ rotation = -0.7853982
 position = Vector2(5653, -928)
 rotation = -0.7853982
 
-[node name="Platform9" parent="." unique_id=534830345 instance=ExtResource("2_xgx5e")]
-position = Vector2(7976, -586)
-scale = Vector2(4.1360636, 0.6259681)
+[node name="Platform9" parent="." unique_id=1739611061 instance=ExtResource("2_xgx5e")]
+position = Vector2(7195, -430)
+
+[node name="Platform10" parent="." unique_id=9670443 instance=ExtResource("2_xgx5e")]
+position = Vector2(7772, -428)
+
+[node name="Platform11" parent="." unique_id=1345573704 instance=ExtResource("2_xgx5e")]
+position = Vector2(8353, -428)
+
+[node name="Platform12" parent="." unique_id=231387182 instance=ExtResource("2_xgx5e")]
+position = Vector2(8928, -434)

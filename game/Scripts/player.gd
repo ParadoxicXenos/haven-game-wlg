@@ -1,5 +1,6 @@
 extends CharacterBody2D
 ##CHARACTER BODY IS 0, and rigidbody =1
+
 var canSling = true
 var canMove = true
 const SPEED = 160.0
@@ -16,7 +17,6 @@ var impact
 var controller = false
 var direction: float
 func _ready():
-	Global.player = self
 	if Input.get_connected_joypads().size() > 0:
 		controller = true
 	print("controller:",controller)
@@ -73,10 +73,11 @@ func _physics_process(delta: float) -> void:
 	
 	if canMove:
 		move_and_slide()
+	else :
+		velocity = Vector2(0, 0)
 		
 	if ! slinging :
 		$Timer.start()
-		
 	if slinging :
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
@@ -89,8 +90,9 @@ func _physics_process(delta: float) -> void:
 				velocity=reflected
 				reflected = Vector2(0,0)
 				print(velocity)
-				if velocity.y >-105&& velocity.y < 0:
+				if velocity.y > -105 && velocity.y < 0:
 					velocity.y = 0
 				$Timer.start()
 				
 	print($Timer.time_left)
+	RenderingServer.global_shader_parameter_set("player_move_dir", velocity)
