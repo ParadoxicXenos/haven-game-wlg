@@ -29,10 +29,10 @@ func _physics_process(delta: float) -> void:
 		$CollisionShape2D.shape.radius = 70.0
 		$AnimatedSprite2D.play("Roll")
 		if velocity.x < 0:
-			$AnimatedSprite2D.rotation +=1
+			$AnimatedSprite2D.rotation -=1
 			$AnimatedSprite2D.flip_h = true
 		elif velocity.x > 0:
-			$AnimatedSprite2D.rotation -=1
+			$AnimatedSprite2D.rotation +=1
 			$AnimatedSprite2D.flip_h = false
 	else : $AnimatedSprite2D.play("Walk")
 		

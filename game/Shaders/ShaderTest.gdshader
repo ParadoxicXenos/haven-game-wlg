@@ -16,7 +16,7 @@ void fragment() {
 	vec4 sampleColor;
 	for (float i = 0.0; i < blurAmt; i ++) {
 		sampleColor = textureLod(screen_texture, vec2(distortedUV.x - (((i - blurAmt) * -1.0) / blurDiv * player_move_dir.x / -1000.0), distortedUV.y - (((i - blurAmt) * -1.0) / blurDiv *  player_move_dir.y / -1000.0)), 0.0);
-		blurVal = mix(blurVal, sampleColor, 0.06);
+		blurVal = mix(blurVal, sampleColor, 0.2);
 	}
 	//blurVal /= blurAmt;
 	
