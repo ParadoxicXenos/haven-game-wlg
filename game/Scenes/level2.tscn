@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c3mj13bkyyfrk"]
+
+[ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_dlanv"]
+[ext_resource type="PackedScene" uid="uid://b0edelq78t3rx" path="res://Scenes/player.tscn" id="2_onqnr"]
+[ext_resource type="PackedScene" uid="uid://d3ps0vqgnkl1n" path="res://Scenes/finish.tscn" id="2_styii"]
+[ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="3_styii"]
+[ext_resource type="PackedScene" uid="uid://cq80u1f0xb0km" path="res://Scenes/ded.tscn" id="4_lgosu"]
+[ext_resource type="PackedScene" uid="uid://ds0qq0c38lkx8" path="res://Scenes/Shader_Test.tscn" id="5_onqnr"]
+
+[sub_resource type="GDScript" id="GDScript_xgx5e"]
+script/source = "extends Node2D
+var respawn = Vector2(963,539)
+func _on_finish_new_level() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/finito.tscn\")
+"
+
+[node name="Levels" type="Node2D" unique_id=1159028874]
+script = SubResource("GDScript_xgx5e")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1792178268]
+scroll_scale = Vector2(0.785, 0.785)
+repeat_size = Vector2(10080, 0)
+repeat_times = 658
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=296677835]
+position = Vector2(1086.0001, 769)
+scale = Vector2(7, 7)
+texture = ExtResource("1_dlanv")
+
+[node name="Player" parent="." unique_id=591414065 instance=ExtResource("2_onqnr")]
+position = Vector2(963, 539)
+
+[node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("3_styii")]
+position = Vector2(939, 889)
+
+[node name="Platform2" parent="." unique_id=366385558 instance=ExtResource("3_styii")]
+position = Vector2(3203, 650)
+
+[node name="Ded_floor" parent="Platform2" unique_id=988121489 instance=ExtResource("4_lgosu")]
+position = Vector2(-1411, -703)
+
+[node name="Ded_floor" parent="Platform2/Ded_floor" unique_id=355894905 instance=ExtResource("4_lgosu")]
+position = Vector2(237, 2)
+
+[node name="Ded_floor" parent="Platform2/Ded_floor/Ded_floor" unique_id=628555468 instance=ExtResource("4_lgosu")]
+position = Vector2(189, -6)
+
+[node name="Ded_floor2" parent="Platform2/Ded_floor/Ded_floor" unique_id=11196893 instance=ExtResource("4_lgosu")]
+position = Vector2(2063, 13)
+
+[node name="Ded_floor3" parent="Platform2/Ded_floor/Ded_floor" unique_id=1944866151 instance=ExtResource("4_lgosu")]
+position = Vector2(2266, 5)
+
+[node name="Ded_floor4" parent="Platform2/Ded_floor/Ded_floor" unique_id=152351457 instance=ExtResource("4_lgosu")]
+position = Vector2(2483, -2)
+
+[node name="Platform3" parent="." unique_id=89931538 instance=ExtResource("3_styii")]
+position = Vector2(5467, 826)
+
+[node name="Platform4" parent="." unique_id=1513283117 instance=ExtResource("3_styii")]
+position = Vector2(2000, 71)
+
+[node name="Platform5" parent="." unique_id=517644057 instance=ExtResource("3_styii")]
+position = Vector2(2007, 463)
+rotation = 1.5707964
+
+[node name="Platform6" parent="." unique_id=318784600 instance=ExtResource("3_styii")]
+position = Vector2(4299, 82)
+
+[node name="Platform7" parent="." unique_id=1956872145 instance=ExtResource("3_styii")]
+position = Vector2(4306, 474)
+rotation = 1.5707964
+
+[node name="Ded_floor2" parent="Platform7" unique_id=630812521 instance=ExtResource("4_lgosu")]
+position = Vector2(-320.00012, -2341)
+rotation = -1.5707964
+
+[node name="Ded_floor3" parent="Platform7" unique_id=482562788 instance=ExtResource("4_lgosu")]
+position = Vector2(-328.00012, -2544)
+rotation = -1.5707964
+
+[node name="Ded_floor4" parent="Platform7" unique_id=1537960907 instance=ExtResource("4_lgosu")]
+position = Vector2(-335.00012, -2761)
+rotation = -1.5707964
+
+[node name="Platform3" parent="Platform7" unique_id=1489451773 instance=ExtResource("3_styii")]
+position = Vector2(555.9998, -3730)
+rotation = -1.5707964
+
+[node name="Platform6" parent="Platform7" unique_id=2109670159 instance=ExtResource("3_styii")]
+position = Vector2(-188.0001, -2562)
+rotation = -1.5707964
+
+[node name="Platform7" parent="Platform7" unique_id=1748057863 instance=ExtResource("3_styii")]
+position = Vector2(203.9999, -2569)
+
+[node name="Platform8" parent="Platform7" unique_id=363310289 instance=ExtResource("3_styii")]
+position = Vector2(4306, 474)
+rotation = 1.5707964
+
+[node name="Ded_floor2" parent="Platform7/Platform8" unique_id=1688558977 instance=ExtResource("4_lgosu")]
+position = Vector2(-320.00012, -2341)
+rotation = -1.5707964
+
+[node name="Ded_floor3" parent="Platform7/Platform8" unique_id=2142335657 instance=ExtResource("4_lgosu")]
+position = Vector2(-328.00012, -2544)
+rotation = -1.5707964
+
+[node name="Ded_floor4" parent="Platform7/Platform8" unique_id=1745366481 instance=ExtResource("4_lgosu")]
+position = Vector2(-335.00012, -2761)
+rotation = -1.5707964
+
+[node name="Platform3" parent="Platform7/Platform8" unique_id=1799347303 instance=ExtResource("3_styii")]
+position = Vector2(555.9998, -3730)
+rotation = -1.5707964
+
+[node name="Platform6" parent="Platform7/Platform8" unique_id=1283731515 instance=ExtResource("3_styii")]
+position = Vector2(-188.0001, -2562)
+rotation = -1.5707964
+
+[node name="Platform7" parent="Platform7/Platform8" unique_id=1638133049 instance=ExtResource("3_styii")]
+position = Vector2(203.9999, -2569)
+
+[node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("5_onqnr")]
+
+[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("2_styii")]
+position = Vector2(8264, 850)
+scale = Vector2(6.590936, 5.346135)

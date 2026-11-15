@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 					arrowLine.set_point_position(0,Vector2(0,0))
 
 				if Input.is_action_pressed("LT"):
+					Input.start_joy_vibration(0, 0.5, 0.8, 1.0)
 					charBody.canMove = false
 					arrowLine.visible = true
 					arrowHead.visible = true

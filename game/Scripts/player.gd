@@ -22,7 +22,16 @@ func _ready():
 		controller = true
 	print("controller:",controller)
 func _physics_process(delta: float) -> void:
+	for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is RigidBody2D:
+				velocity= Vector2(0,0)
+				slinging= false
+				global_position = $"../..".respawn
 	if position.y > 2300:
+		global_position = $"../..".respawn
+	if position.y < -2500:
 		global_position = $"../..".respawn
 	if slinging == true:
 		$CollisionShape2D.shape.height = 70.0
@@ -86,6 +95,7 @@ func _physics_process(delta: float) -> void:
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
 			if collider is StaticBody2D:
+				Input.start_joy_vibration(0, 1, 1, 0.2)
 				collision_normal = collision.get_normal()
 				collision_point = collision.get_position()
 				impact = (velo.x * collision_normal.x)+(velo.y*collision_normal.y)

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://d3ps0vqgnkl1n"]
 
 [ext_resource type="Script" uid="uid://db7svhlixefka" path="res://Scenes/finish.gd" id="1_nv66a"]
+[ext_resource type="Texture2D" uid="uid://c1jknxfhp6j6j" path="res://Art/The Great Guy.svg" id="2_o6pr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(26, 36)
 
 [node name="Finish" type="Node2D" unique_id=1637848612]
 script = ExtResource("1_nv66a")
@@ -11,5 +13,9 @@ script = ExtResource("1_nv66a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2076054734]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=28937462]
+scale = Vector2(0.19934854, 0.2)
+texture = ExtResource("2_o6pr6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -58,15 +58,22 @@ position = Vector2(4940, 705)
 position = Vector2(5833, 539)
 rotation = -0.7853982
 
-[node name="Platform8" parent="." unique_id=1287710992 instance=ExtResource("2_xgx5e")]
-position = Vector2(5653, -928)
-rotation = -0.7853982
+[node name="Ded" parent="." unique_id=988121489 instance=ExtResource("4_3akqy")]
+position = Vector2(1750, 640)
 
 [node name="Platform9" parent="." unique_id=1739611061 instance=ExtResource("2_xgx5e")]
 position = Vector2(7195, -430)
 
+[node name="Platform8" parent="." unique_id=1287710992 instance=ExtResource("2_xgx5e")]
+position = Vector2(5653, -928)
+rotation = -0.7853982
+
 [node name="Platform10" parent="." unique_id=9670443 instance=ExtResource("2_xgx5e")]
 position = Vector2(7772, -428)
+
+[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
+position = Vector2(9143, -692.00006)
+scale = Vector2(7.653474, 9.58478)
 
 [node name="Platform11" parent="." unique_id=1345573704 instance=ExtResource("2_xgx5e")]
 position = Vector2(8353, -428)
@@ -74,6 +81,7 @@ position = Vector2(8353, -428)
 [node name="Platform12" parent="." unique_id=231387182 instance=ExtResource("2_xgx5e")]
 position = Vector2(8928, -434)
 
+<<<<<<< Updated upstream
 [node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
 position = Vector2(9271, -640)
 scale = Vector2(7.653474, 9.58478)
@@ -81,4 +89,6 @@ scale = Vector2(7.653474, 9.58478)
 [node name="Ded" parent="." unique_id=988121489 instance=ExtResource("4_3akqy")]
 position = Vector2(1753, 536)
 
+=======
+>>>>>>> Stashed changes
 [connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]
