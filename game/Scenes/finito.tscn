@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://6giv7denuhj6"]
 
+[ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_61x37"]
+
 [node name="Node2D" type="Node2D" unique_id=878527660]
 
+[node name="Image" type="Sprite2D" parent="." unique_id=2001591085]
+position = Vector2(980, 529)
+scale = Vector2(1.5722222, 1.309804)
+texture = ExtResource("1_61x37")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=141560497]
-offset_left = 40.0
-offset_top = -12.0
+offset_left = 2.0
 offset_right = 1925.0
-offset_bottom = 1019.0
+offset_bottom = 1080.0
 theme_override_font_sizes/normal_font_size = 300
 theme_override_font_sizes/bold_font_size = 20
 text = "YOU FINISH GAME"
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
