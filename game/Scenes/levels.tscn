@@ -2,20 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://ds0qq0c38lkx8" path="res://Scenes/Shader_Test.tscn" id="1_3akqy"]
 [ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_jk88k"]
+[ext_resource type="Script" uid="uid://ctpmdytt5ed5h" path="res://Scripts/levels.gd" id="1_p1uqq"]
 [ext_resource type="PackedScene" uid="uid://b0edelq78t3rx" path="res://Scenes/player.tscn" id="1_yh33m"]
+[ext_resource type="PackedScene" uid="uid://c3mj13bkyyfrk" path="res://Scenes/level2.tscn" id="2_j0k6p"]
 [ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_xgx5e"]
 [ext_resource type="PackedScene" uid="uid://d3ps0vqgnkl1n" path="res://Scenes/finish.tscn" id="3_uusmb"]
 [ext_resource type="PackedScene" uid="uid://cq80u1f0xb0km" path="res://Scenes/ded.tscn" id="4_3akqy"]
 
-[sub_resource type="GDScript" id="GDScript_xgx5e"]
-script/source = "extends Node2D
-var respawn = Vector2(963,539)
-func _on_finish_new_level() -> void:
-	get_tree().change_scene_to_file(\"res://Scenes/level2.tscn\")
-"
-
 [node name="Levels" type="Node2D" unique_id=1159028874]
-script = SubResource("GDScript_xgx5e")
+script = ExtResource("1_p1uqq")
+nextLevel = ExtResource("2_j0k6p")
+respawn = Vector2(963, 539)
 
 [node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("1_3akqy")]
 position = Vector2(1745, 536)
