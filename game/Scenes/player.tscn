@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
 [ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/player.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://co5efqypuqrpt" path="res://Scripts/dude.gd" id="1_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://vuvwa505m58e" path="res://Art/roll1.svg" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://r3cjc7e3f2tw" path="res://Art/roll2.svg" id="5_tx1dd"]
@@ -43,6 +44,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 
 [node name="Player" type="Node2D" unique_id=591414065]
+script = ExtResource("1_f1ek2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
 script = ExtResource("1_bo1nx")

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 ##CHARACTER BODY IS 0, and rigidbody =1
 var canSling = true
 var canMove = true
@@ -21,6 +22,8 @@ func _ready():
 		controller = true
 	print("controller:",controller)
 func _physics_process(delta: float) -> void:
+	if position.y > 2300:
+		global_position = $"../..".respawn
 	if slinging == true:
 		$CollisionShape2D.shape.height = 70.0
 		$CollisionShape2D.shape.radius = 70.0
@@ -92,5 +95,7 @@ func _physics_process(delta: float) -> void:
 				if velocity.y >-105&& velocity.y < 0:
 					velocity.y = 0
 				$Timer.start()
+			if collider is RigidBody2D:
+				global_position = $"../..".respawn
 				
 	print($Timer.time_left)

@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://b2c5qqcpt6vw1"]
 
 [ext_resource type="PackedScene" uid="uid://b0edelq78t3rx" path="res://Scenes/player.tscn" id="1_yh33m"]
-[ext_resource type="Script" path="res://Shaders/SlingManager.gd" id="2_uusmb"]
 [ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_xgx5e"]
+[ext_resource type="PackedScene" uid="uid://d3ps0vqgnkl1n" path="res://Scenes/finish.tscn" id="3_uusmb"]
+[ext_resource type="PackedScene" uid="uid://cq80u1f0xb0km" path="res://Scenes/ded.tscn" id="4_3akqy"]
 
 [sub_resource type="GDScript" id="GDScript_xgx5e"]
+script/source = "extends Node2D
+var respawn = Vector2(963,539)
+func _on_finish_new_level() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/level2.tscn\")
+"
 
 [node name="Levels" type="Node2D" unique_id=1159028874]
 script = SubResource("GDScript_xgx5e")
 
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
 position = Vector2(963, 539)
-script = ExtResource("2_uusmb")
 
 [node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("2_xgx5e")]
 position = Vector2(939, 889)
@@ -44,3 +49,12 @@ rotation = -0.7853982
 [node name="Platform9" parent="." unique_id=534830345 instance=ExtResource("2_xgx5e")]
 position = Vector2(7976, -586)
 scale = Vector2(4.1360636, 0.6259681)
+
+[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
+position = Vector2(9271, -640)
+scale = Vector2(7.653474, 9.58478)
+
+[node name="Ded" parent="." unique_id=988121489 instance=ExtResource("4_3akqy")]
+position = Vector2(1750, 640)
+
+[connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]

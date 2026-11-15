@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cq80u1f0xb0km"]
+
+[ext_resource type="Texture2D" uid="uid://bj48ob8lq6roq" path="res://Art/backdrop7 (1).svg" id="2_6bua8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls21c"]
+size = Vector2(234, 350.00085)
+
+[node name="Ded_floor" type="Node2D" unique_id=988121489]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1034601517]
+mass = 100000000000000.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=370467710]
+position = Vector2(-3, -1.9999981)
+scale = Vector2(1, 0.23999941)
+shape = SubResource("RectangleShape2D_ls21c")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=299505912]
+scale = Vector2(0.9174811, 0.7785766)
+texture = ExtResource("2_6bua8")

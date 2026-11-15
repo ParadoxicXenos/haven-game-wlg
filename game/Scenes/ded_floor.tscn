@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bcwdggrnods8t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_31ul8"]
+
+[node name="Ded_floor" type="Node2D" unique_id=988121489]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1034601517]
+mass = 100000000000000.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=370467710]
+position = Vector2(-3, -1.9999981)
+scale = Vector2(1, 0.23999941)
+shape = SubResource("WorldBoundaryShape2D_31ul8")
