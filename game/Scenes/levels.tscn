@@ -81,14 +81,8 @@ position = Vector2(8353, -428)
 [node name="Platform12" parent="." unique_id=231387182 instance=ExtResource("2_xgx5e")]
 position = Vector2(8928, -434)
 
-<<<<<<< Updated upstream
-[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
+[node name="Finish2" parent="." unique_id=1415989555 instance=ExtResource("3_uusmb")]
 position = Vector2(9271, -640)
 scale = Vector2(7.653474, 9.58478)
 
-[node name="Ded" parent="." unique_id=988121489 instance=ExtResource("4_3akqy")]
-position = Vector2(1753, 536)
-
-=======
->>>>>>> Stashed changes
 [connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]
