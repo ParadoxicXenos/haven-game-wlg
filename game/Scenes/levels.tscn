@@ -17,6 +17,9 @@ func _on_finish_new_level() -> void:
 [node name="Levels" type="Node2D" unique_id=1159028874]
 script = SubResource("GDScript_xgx5e")
 
+[node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("1_3akqy")]
+position = Vector2(1745, 536)
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1792178268]
 scroll_scale = Vector2(0.785, 0.785)
 repeat_size = Vector2(10080, 0)
@@ -27,10 +30,9 @@ position = Vector2(1085.9999, 768.99994)
 scale = Vector2(7, 7)
 texture = ExtResource("1_jk88k")
 
-[node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("1_3akqy")]
-
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("1_yh33m")]
 position = Vector2(963, 539)
+script = null
 
 [node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("2_xgx5e")]
 position = Vector2(939, 889)
@@ -46,11 +48,11 @@ position = Vector2(1753, 92)
 position = Vector2(2585, 899)
 
 [node name="Platform5" parent="." unique_id=1535937480 instance=ExtResource("2_xgx5e")]
-position = Vector2(1753, 996)
+position = Vector2(1753, 846)
 rotation = 1.5707964
 
 [node name="Platform6" parent="." unique_id=163437668 instance=ExtResource("2_xgx5e")]
-position = Vector2(4897, 876)
+position = Vector2(4940, 705)
 
 [node name="Platform7" parent="." unique_id=93142026 instance=ExtResource("2_xgx5e")]
 position = Vector2(5833, 539)
@@ -77,6 +79,6 @@ position = Vector2(9271, -640)
 scale = Vector2(7.653474, 9.58478)
 
 [node name="Ded" parent="." unique_id=988121489 instance=ExtResource("4_3akqy")]
-position = Vector2(1750, 640)
+position = Vector2(1753, 536)
 
 [connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]

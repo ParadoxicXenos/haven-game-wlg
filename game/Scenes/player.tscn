@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dp4g3i21am2v1" path="res://Art/anim2.svg" id="7_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://dvb8mluxh66lj" path="res://Art/anim3.svg" id="8_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cccquskxqiyr4" path="res://Art/anim4.svg" id="9_7dp3o"]
+[ext_resource type="AudioStream" uid="uid://cd38udl83mvhe" path="res://Art/proteus21-flowtrail-115525.mp3" id="10_tx1dd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
 animations = [{
@@ -69,3 +70,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1784460874]
 shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=446761269]
+stream = ExtResource("10_tx1dd")
+autoplay = true
