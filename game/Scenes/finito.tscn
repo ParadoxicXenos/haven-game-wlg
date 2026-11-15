@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://6giv7denuhj6"]
 
+[ext_resource type="Script" uid="uid://binmtyp4pa10c" path="res://Scripts/finito.gd" id="1_5yebs"]
 [ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_61x37"]
 
 [node name="Node2D" type="Node2D" unique_id=878527660]
+script = ExtResource("1_5yebs")
 
 [node name="Image" type="Sprite2D" parent="." unique_id=2001591085]
 position = Vector2(980, 529)
@@ -19,3 +21,13 @@ text = "YOU FINISH GAME"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1293923248]
+offset_left = 748.0
+offset_top = 903.0
+offset_right = 1206.0
+offset_bottom = 1021.0
+theme_override_font_sizes/font_size = 73
+text = "RESTART?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
