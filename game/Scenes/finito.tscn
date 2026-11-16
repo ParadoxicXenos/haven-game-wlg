@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://binmtyp4pa10c" path="res://Scripts/finito.gd" id="1_5yebs"]
 [ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_61x37"]
+[ext_resource type="Texture2D" uid="uid://b7bx66m5ar2va" path="res://Art/ButtonUp.png" id="3_6j0bj"]
+[ext_resource type="Texture2D" uid="uid://cypgjr8onmwfs" path="res://Art/ButtonDown.png" id="4_ytl2y"]
+[ext_resource type="Texture2D" uid="uid://4q12jqwab4aw" path="res://Art/ButtonHover.png" id="5_fxtqx"]
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
 
 [node name="Node2D" type="Node2D" unique_id=878527660]
 script = ExtResource("1_5yebs")
@@ -12,10 +17,10 @@ scale = Vector2(1.5722222, 1.309804)
 texture = ExtResource("1_61x37")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=141560497]
-offset_left = 2.0
-offset_top = -136.0
-offset_right = 1925.0
-offset_bottom = 944.0
+offset_left = 4.0
+offset_top = -124.0
+offset_right = 1927.0
+offset_bottom = 956.0
 theme_override_font_sizes/normal_font_size = 300
 theme_override_font_sizes/bold_font_size = 20
 text = "YOU FINISH GAME"
@@ -23,12 +28,15 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=1293923248]
-offset_left = 748.0
-offset_top = 855.0
-offset_right = 1206.0
-offset_bottom = 973.0
-theme_override_font_sizes/font_size = 73
-text = "RESTART?"
+[node name="TextureButton" type="TextureButton" parent="." unique_id=585957372]
+offset_left = 694.0
+offset_top = 782.0
+offset_right = 1272.0
+offset_bottom = 1029.0
+theme = SubResource("Theme_g4v7s")
+texture_normal = ExtResource("3_6j0bj")
+texture_pressed = ExtResource("4_ytl2y")
+texture_hover = ExtResource("5_fxtqx")
+stretch_mode = 0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
