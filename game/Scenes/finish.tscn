@@ -24,7 +24,7 @@ animations = [{
 "texture": ExtResource("3_oub70")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"Wind",
 "speed": 8.0
 }]
 
@@ -39,6 +39,6 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1600751713]
 scale = Vector2(2.269231, 2.2692308)
 sprite_frames = SubResource("SpriteFrames_u0f01")
-frame_progress = 0.7165511
+animation = &"Wind"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
