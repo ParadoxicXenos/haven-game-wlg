@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b8efl55b7wf3y"]
+
+[ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_klylv"]
+[ext_resource type="Script" uid="uid://dq6j5or54jh4m" path="res://Scripts/title_screen.gd" id="1_twnyg"]
+[ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_4gxqj"]
+[ext_resource type="PackedScene" uid="uid://ck78qorhe885u" path="res://Scenes/daven_menu.tscn" id="4_twnyg"]
+
+[node name="TitleScreen" type="Node2D" unique_id=26283912]
+script = ExtResource("1_twnyg")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=472327225]
+scroll_scale = Vector2(0.785, 0.785)
+repeat_size = Vector2(10080, 0)
+repeat_times = 658
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=570897269]
+position = Vector2(1085.9999, 768.99994)
+scale = Vector2(7, 7)
+texture = ExtResource("1_klylv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Parallax2D" unique_id=483775160]
+offset_left = 926.0
+offset_top = 180.0
+offset_right = 1830.0
+offset_bottom = 500.0
+theme_override_constants/line_separation = -70
+theme_override_font_sizes/normal_font_size = 128
+text = "Daven's Haven"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("2_4gxqj")]
+position = Vector2(368, 896)
+scale = Vector2(0.7, 0.7)
+
+[node name="Player" parent="." unique_id=591414065 instance=ExtResource("4_twnyg")]
+position = Vector2(253, 727)

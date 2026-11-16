@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ck78qorhe885u"]
+
+[ext_resource type="Script" uid="uid://dgoefscvd4806" path="res://Scripts/daven_menu.gd" id="1_natcj"]
+[ext_resource type="SpriteFrames" uid="uid://cea61ltbt44nj" path="res://Art/player_spriteframes.tres" id="2_rppo1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[node name="Player" type="Node2D" unique_id=591414065]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391]
+script = ExtResource("1_natcj")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1617433839]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=350821104]
+scale = Vector2(0.6102941, 0.61029416)
+sprite_frames = ExtResource("2_rppo1")
+animation = &"Roll"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1784460874]
+shape = SubResource("CapsuleShape2D_g4v7s")
