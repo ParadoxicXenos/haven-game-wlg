@@ -3,44 +3,8 @@
 [ext_resource type="Script" uid="uid://c20vvxbdtv7xw" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://co5efqypuqrpt" path="res://Scripts/dude.gd" id="1_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://vuvwa505m58e" path="res://Art/roll1.svg" id="4_f1ek2"]
-[ext_resource type="Texture2D" uid="uid://r3cjc7e3f2tw" path="res://Art/roll2.svg" id="5_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://b3o5ig7fv8xex" path="res://Art/anim1.svg" id="6_gymyn"]
-[ext_resource type="Texture2D" uid="uid://dp4g3i21am2v1" path="res://Art/anim2.svg" id="7_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://dvb8mluxh66lj" path="res://Art/anim3.svg" id="8_ukyrk"]
-[ext_resource type="Texture2D" uid="uid://cccquskxqiyr4" path="res://Art/anim4.svg" id="9_7dp3o"]
+[ext_resource type="SpriteFrames" uid="uid://cea61ltbt44nj" path="res://Art/player_spriteframes.tres" id="5_fkybt"]
 [ext_resource type="AudioStream" uid="uid://cd38udl83mvhe" path="res://Art/proteus21-flowtrail-115525.mp3" id="10_tx1dd"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_f1ek2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tx1dd")
-}],
-"loop": 1,
-"name": &"Roll",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_gymyn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pu2lt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ukyrk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_7dp3o")
-}],
-"loop": 1,
-"name": &"Walk",
-"speed": 8.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 
@@ -65,7 +29,7 @@ autoplay = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=350821104 groups=["player"]]
 scale = Vector2(0.6102941, 0.61029416)
-sprite_frames = SubResource("SpriteFrames_6t5aa")
+sprite_frames = ExtResource("5_fkybt")
 animation = &"Roll"
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1719479250 groups=["player"]]
