@@ -24,6 +24,9 @@ position = Vector2(1086.0001, 769)
 scale = Vector2(7, 7)
 texture = ExtResource("1_dlanv")
 
+[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("2_styii")]
+position = Vector2(8271, 820)
+
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("2_onqnr")]
 position = Vector2(930, 603)
 
@@ -91,37 +94,6 @@ rotation = -1.5707964
 [node name="Platform7" parent="Platform7" unique_id=1748057863 instance=ExtResource("3_styii")]
 position = Vector2(203.9999, -2569)
 
-[node name="Platform8" parent="Platform7" unique_id=363310289 instance=ExtResource("3_styii")]
-position = Vector2(4306, 474)
-rotation = 1.5707964
-
-[node name="Ded_floor2" parent="Platform7/Platform8" unique_id=1688558977 instance=ExtResource("4_lgosu")]
-position = Vector2(-320.00012, -2341)
-rotation = -1.5707964
-
-[node name="Ded_floor3" parent="Platform7/Platform8" unique_id=2142335657 instance=ExtResource("4_lgosu")]
-position = Vector2(-328.00012, -2544)
-rotation = -1.5707964
-
-[node name="Ded_floor4" parent="Platform7/Platform8" unique_id=1745366481 instance=ExtResource("4_lgosu")]
-position = Vector2(-335.00012, -2761)
-rotation = -1.5707964
-
-[node name="Platform3" parent="Platform7/Platform8" unique_id=1799347303 instance=ExtResource("3_styii")]
-position = Vector2(555.9998, -3730)
-rotation = -1.5707964
-
-[node name="Platform6" parent="Platform7/Platform8" unique_id=1283731515 instance=ExtResource("3_styii")]
-position = Vector2(-188.0001, -2562)
-rotation = -1.5707964
-
-[node name="Platform7" parent="Platform7/Platform8" unique_id=1638133049 instance=ExtResource("3_styii")]
-position = Vector2(203.9999, -2569)
-
 [node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("5_onqnr")]
-
-[node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("2_styii")]
-position = Vector2(8264, 850)
-scale = Vector2(6.590936, 5.346135)
 
 [connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]

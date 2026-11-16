@@ -69,8 +69,7 @@ rotation = -0.7853982
 position = Vector2(7772, -428)
 
 [node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
-position = Vector2(9143, -692.00006)
-scale = Vector2(7.653474, 9.58478)
+position = Vector2(9121, -656)
 
 [node name="Platform11" parent="." unique_id=1345573704 instance=ExtResource("2_xgx5e")]
 position = Vector2(8353, -428)
