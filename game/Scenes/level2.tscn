@@ -24,6 +24,9 @@ position = Vector2(1086.0001, 769)
 scale = Vector2(7, 7)
 texture = ExtResource("1_dlanv")
 
+[node name="Player" parent="." unique_id=591414065 instance=ExtResource("2_onqnr")]
+position = Vector2(930, 603)
+
 [node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("3_styii")]
 position = Vector2(939, 889)
 
@@ -116,9 +119,6 @@ rotation = -1.5707964
 position = Vector2(203.9999, -2569)
 
 [node name="ShaderTest" parent="." unique_id=259047168 instance=ExtResource("5_onqnr")]
-
-[node name="Player" parent="." unique_id=591414065 instance=ExtResource("2_onqnr")]
-position = Vector2(930, 603)
 
 [node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("2_styii")]
 position = Vector2(8264, 850)
