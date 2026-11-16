@@ -39,11 +39,13 @@ func _process(delta: float) -> void:
 				arrowHead.position = Vector2(0,0) + mouseVec * arrowMult
 				arrowHead.look_at(playerPos)
 				arrowHead.rotation_degrees -= 90
-				print(mouseVec.length())
 
 			if Input.is_action_just_released("click"):
 				charBody.slinging = true
 				var mouseVec= OGmousePos-get_global_mouse_position()
+				# If bigger than 1000 it needs to clamp
+				if (mouseVec.length() > stickSpeed) :
+					mouseVec = mouseVec.normalized() * stickSpeed
 				print("RELEASED")
 				arrowLine.visible = false
 				arrowHead.visible = false
