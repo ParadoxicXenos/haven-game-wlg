@@ -32,12 +32,8 @@ func _physics_process(delta: float) -> void:
 	if position.y > 2300:
 		velocity = Vector2(0,0)
 		global_position = $"../..".respawn
-<<<<<<< Updated upstream
 	if position.y < -2500:
 		velocity = Vector2(0,0)
-=======
-	if position.y < -3490:
->>>>>>> Stashed changes
 		global_position = $"../..".respawn
 	if slinging == true:
 		$CollisionShape2D.shape.height = 70.0
