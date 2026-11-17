@@ -29,32 +29,37 @@ func _physics_process(delta: float) -> void:
 				velocity= Vector2(0,0)
 				slinging= false
 				global_position = $"../..".respawn
+				
+	# top and bottom death bounds
 	if position.y > 2300:
 		velocity = Vector2(0,0)
 		global_position = $"../..".respawn
 	if position.y < -2500:
 		velocity = Vector2(0,0)
 		global_position = $"../..".respawn
+		
+	# sling animation and hitbox logic
 	if slinging == true:
 		$CollisionShape2D.shape.height = 70.0
 		$CollisionShape2D.shape.radius = 70.0
 		$AnimatedSprite2D.play("Roll")
+		# spin direction
 		if velocity.x < 0:
 			$AnimatedSprite2D.rotation -=1
 			$AnimatedSprite2D.flip_h = true
 		elif velocity.x > 0:
 			$AnimatedSprite2D.rotation +=1
 			$AnimatedSprite2D.flip_h = false
-	else : $AnimatedSprite2D.play("Walk")
+	elif abs(velocity.x) < 90: $AnimatedSprite2D.play("Idle")
 		
 	print("slinging",slinging)
+	#gravity
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and is_on_floor() || Input.is_action_just_pressed("Lup") and is_on_floor() || Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
 
 	if !slinging:
 		$AnimatedSprite2D.rotation=0
@@ -64,9 +69,10 @@ func _physics_process(delta: float) -> void:
 			direction = Input.get_axis("Lleft", "Lright")
 		elif controller == false:
 			direction = Input.get_axis("left", "right") 
+		
 		if direction:
-			velocity.x += direction * SPEED
 			$AnimatedSprite2D.play("Walk")
+			velocity.x += direction * SPEED
 			if direction < 0:
 				$AnimatedSprite2D.flip_h = true
 			elif direction > 0:
@@ -76,22 +82,26 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() :
 		canSling = true
 		
+	# end sling 0.5 seconds after last collisiom
 	if slinging && $Timer.time_left == 0.0:
 		slinging = false
+		$AnimatedSprite2D.play("Idle")
 
+	# transfer the arrows potential speed to the player
 	if arrowSpeed != Vector2(0,0) && $Timer.time_left > 0:
 		velocity.x = arrowSpeed.x * FLYMULT
 		velocity.y = arrowSpeed.y * FLYMULT
 	arrowSpeed = Vector2(0,0)
-	var velo=velocity
+	var velo = velocity
 	
 	if canMove:
 		move_and_slide()
 	else :
 		velocity = Vector2(0, 0)
 		
-	if ! slinging :
+	if !slinging :
 		$Timer.start()
+		
 	if slinging :
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
@@ -107,9 +117,10 @@ func _physics_process(delta: float) -> void:
 				print(velocity)
 				if velocity.y > -105 && velocity.y < 0:
 					velocity.y = 0
+				# on a bounce reset the sling end timer
 				$Timer.start()
 			if collider is RigidBody2D:
 				global_position = $"../..".respawn
 				
-	print($Timer.time_left)
+	# send player vel to the motion blur shader
 	RenderingServer.global_shader_parameter_set("player_move_dir", velocity)

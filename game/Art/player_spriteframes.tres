@@ -1,14 +1,35 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://cea61ltbt44nj"]
 
+[ext_resource type="Texture2D" uid="uid://cj6v0yb55xltw" path="res://Art/idle1.svg" id="1_vb4jm"]
 [ext_resource type="Texture2D" uid="uid://vuvwa505m58e" path="res://Art/roll1.svg" id="1_vubo1"]
 [ext_resource type="Texture2D" uid="uid://r3cjc7e3f2tw" path="res://Art/roll2.svg" id="2_a7ruw"]
+[ext_resource type="Texture2D" uid="uid://bj2nn2u318f1r" path="res://Art/idle2.svg" id="2_eme8d"]
+[ext_resource type="Texture2D" uid="uid://s71kmc34tiks" path="res://Art/idle3.svg" id="3_cxa2l"]
 [ext_resource type="Texture2D" uid="uid://b3o5ig7fv8xex" path="res://Art/anim1.svg" id="3_ibhub"]
+[ext_resource type="Texture2D" uid="uid://drm5o5nls8dex" path="res://Art/idle4.svg" id="4_jhe1f"]
 [ext_resource type="Texture2D" uid="uid://dp4g3i21am2v1" path="res://Art/anim2.svg" id="4_ug1wu"]
 [ext_resource type="Texture2D" uid="uid://dvb8mluxh66lj" path="res://Art/anim3.svg" id="5_vb4jm"]
 [ext_resource type="Texture2D" uid="uid://cccquskxqiyr4" path="res://Art/anim4.svg" id="6_eme8d"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vb4jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eme8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cxa2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jhe1f")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_vubo1")

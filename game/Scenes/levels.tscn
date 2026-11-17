@@ -59,22 +59,22 @@ rotation = -0.7853982
 position = Vector2(1750, 640)
 
 [node name="Platform9" parent="." unique_id=1739611061 instance=ExtResource("2_xgx5e")]
-position = Vector2(7195, -430)
+position = Vector2(7195, -428)
 
 [node name="Platform8" parent="." unique_id=1287710992 instance=ExtResource("2_xgx5e")]
-position = Vector2(5653, -928)
+position = Vector2(5653, -926)
 rotation = -0.7853982
 
 [node name="Platform10" parent="." unique_id=9670443 instance=ExtResource("2_xgx5e")]
-position = Vector2(7772, -428)
+position = Vector2(7772, -426)
 
 [node name="Finish" parent="." unique_id=1637848612 instance=ExtResource("3_uusmb")]
-position = Vector2(9121, -656)
+position = Vector2(9121, -654)
 
 [node name="Platform11" parent="." unique_id=1345573704 instance=ExtResource("2_xgx5e")]
-position = Vector2(8353, -428)
+position = Vector2(8353, -426)
 
 [node name="Platform12" parent="." unique_id=231387182 instance=ExtResource("2_xgx5e")]
-position = Vector2(8928, -434)
+position = Vector2(8928, -428)
 
 [connection signal="new_level" from="Finish" to="." method="_on_finish_new_level"]
