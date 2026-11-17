@@ -2,18 +2,11 @@
 
 [ext_resource type="Script" uid="uid://binmtyp4pa10c" path="res://Scripts/finito.gd" id="1_5yebs"]
 [ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_61x37"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://b7bx66m5ar2va" path="res://Art/ButtonUp.png" id="3_6j0bj"]
 [ext_resource type="Texture2D" uid="uid://cypgjr8onmwfs" path="res://Art/ButtonDown.png" id="4_ytl2y"]
 [ext_resource type="Texture2D" uid="uid://4q12jqwab4aw" path="res://Art/ButtonHover.png" id="5_fxtqx"]
 
 [sub_resource type="Theme" id="Theme_g4v7s"]
-=======
-[ext_resource type="Texture2D" uid="uid://ck4kb8w10qb21" path="res://Art/ButtonNormal (2).svg" id="3_6j0bj"]
-[ext_resource type="Script" uid="uid://be0c80gqwvug3" path="res://Scenes/node_2d.gd" id="3_ytl2y"]
-[ext_resource type="Texture2D" uid="uid://dqp146yl4ryr" path="res://Art/ButtonPress (2).svg" id="4_ytl2y"]
-[ext_resource type="Texture2D" uid="uid://du67v24kyf6t3" path="res://Art/ButtonHover (2).svg" id="5_fxtqx"]
->>>>>>> Stashed changes
 
 [node name="Node2D" type="Node2D" unique_id=878527660]
 script = ExtResource("1_5yebs")
@@ -46,22 +39,4 @@ texture_pressed = ExtResource("4_ytl2y")
 texture_hover = ExtResource("5_fxtqx")
 stretch_mode = 0
 
-<<<<<<< Updated upstream
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-=======
-[node name="Node2D" type="Node2D" parent="." unique_id=2066963874]
-position = Vector2(975, 926)
-script = ExtResource("3_ytl2y")
-
-[node name="TextureButton" type="TextureButton" parent="Node2D" unique_id=190531416]
-offset_left = -226.99994
-offset_top = -105.99994
-offset_right = 255.00006
-offset_bottom = 113.00006
-scale = Vector2(0.9501047, 0.9501047)
-texture_normal = ExtResource("3_6j0bj")
-texture_pressed = ExtResource("4_ytl2y")
-texture_hover = ExtResource("5_fxtqx")
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
->>>>>>> Stashed changes
