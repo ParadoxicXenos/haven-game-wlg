@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cbf6w15107yhh" path="res://Art/Title2.svg" id="6_n82rj"]
 [ext_resource type="Texture2D" uid="uid://dc2kjw0s0lthc" path="res://Art/Title3.svg" id="7_0061g"]
 [ext_resource type="Texture2D" uid="uid://1blchau4llq5" path="res://Art/Title4.svg" id="8_8mikk"]
-[ext_resource type="Script" uid="uid://ljmqo8f6bh2b" path="res://Scenes/animated_sprite_2d.gd" id="9_0061g"]
+[ext_resource type="Script" uid="uid://ljmqo8f6bh2b" path="res://Scripts/animated_sprite_2d.gd" id="9_0061g"]
+[ext_resource type="Texture2D" uid="uid://ck4kb8w10qb21" path="res://Art/ButtonNormal (2).svg" id="10_w5sh6"]
+[ext_resource type="Texture2D" uid="uid://dqp146yl4ryr" path="res://Art/ButtonPress (2).svg" id="11_o1e67"]
+[ext_resource type="Texture2D" uid="uid://du67v24kyf6t3" path="res://Art/ButtonHover (2).svg" id="12_ycay6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u0f01"]
 animations = [{
@@ -44,15 +47,39 @@ scale = Vector2(7, 7)
 texture = ExtResource("1_klylv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1028632522]
-position = Vector2(1083, 512)
+position = Vector2(1191, 401)
+scale = Vector2(0.80769235, 0.8076923)
 sprite_frames = SubResource("SpriteFrames_u0f01")
 animation = &"Standard"
 frame_progress = 0.05274115
 script = ExtResource("9_0061g")
 
 [node name="Player" parent="." unique_id=591414065 instance=ExtResource("4_twnyg")]
-position = Vector2(253, 727)
+position = Vector2(171, 787)
 
 [node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("2_4gxqj")]
-position = Vector2(368, 896)
+position = Vector2(318, 956)
 scale = Vector2(0.7, 0.7)
+
+[node name="Platform2" parent="." unique_id=1265681568 instance=ExtResource("2_4gxqj")]
+position = Vector2(741, 958)
+scale = Vector2(0.7, 0.7)
+
+[node name="Platform3" parent="." unique_id=118835826 instance=ExtResource("2_4gxqj")]
+position = Vector2(1164, 964)
+scale = Vector2(0.7, 0.7)
+
+[node name="Platform4" parent="." unique_id=1360886557 instance=ExtResource("2_4gxqj")]
+position = Vector2(1582, 962)
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1774271677]
+offset_left = 361.0
+offset_top = 553.0
+offset_right = 843.0
+offset_bottom = 772.0
+texture_normal = ExtResource("10_w5sh6")
+texture_pressed = ExtResource("11_o1e67")
+texture_hover = ExtResource("12_ycay6")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
