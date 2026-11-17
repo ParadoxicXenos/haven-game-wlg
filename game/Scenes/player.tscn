@@ -32,11 +32,12 @@ position_smoothing_speed = 10.0
 scale = Vector2(0.6102941, 0.61029416)
 sprite_frames = ExtResource("5_fkybt")
 animation = &"Idle"
-frame_progress = 0.33756965
+frame_progress = 0.6653664
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1719479250 groups=["player"]]
 wait_time = 0.5
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1784460874 groups=["player"]]
+visible = false
 shape = SubResource("CapsuleShape2D_g4v7s")

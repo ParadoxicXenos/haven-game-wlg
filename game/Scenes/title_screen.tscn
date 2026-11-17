@@ -4,6 +4,31 @@
 [ext_resource type="Script" uid="uid://dq6j5or54jh4m" path="res://Scripts/title_screen.gd" id="1_twnyg"]
 [ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="2_4gxqj"]
 [ext_resource type="PackedScene" uid="uid://ck78qorhe885u" path="res://Scenes/daven_menu.tscn" id="4_twnyg"]
+[ext_resource type="Texture2D" uid="uid://doi6hgomliucf" path="res://Art/Title1.svg" id="5_55kwv"]
+[ext_resource type="Texture2D" uid="uid://cbf6w15107yhh" path="res://Art/Title2.svg" id="6_n82rj"]
+[ext_resource type="Texture2D" uid="uid://dc2kjw0s0lthc" path="res://Art/Title3.svg" id="7_0061g"]
+[ext_resource type="Texture2D" uid="uid://1blchau4llq5" path="res://Art/Title4.svg" id="8_8mikk"]
+[ext_resource type="Script" uid="uid://ljmqo8f6bh2b" path="res://Scenes/animated_sprite_2d.gd" id="9_0061g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0f01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_55kwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n82rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0061g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8mikk")
+}],
+"loop": 1,
+"name": &"Standard",
+"speed": 8.0
+}]
 
 [node name="TitleScreen" type="Node2D" unique_id=26283912]
 script = ExtResource("1_twnyg")
@@ -18,21 +43,16 @@ position = Vector2(1085.9999, 768.99994)
 scale = Vector2(7, 7)
 texture = ExtResource("1_klylv")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Parallax2D" unique_id=483775160]
-offset_left = 926.0
-offset_top = 180.0
-offset_right = 1830.0
-offset_bottom = 500.0
-theme_override_constants/line_separation = -70
-theme_override_font_sizes/normal_font_size = 128
-text = "Daven's Haven"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1028632522]
+position = Vector2(1083, 512)
+sprite_frames = SubResource("SpriteFrames_u0f01")
+animation = &"Standard"
+frame_progress = 0.05274115
+script = ExtResource("9_0061g")
+
+[node name="Player" parent="." unique_id=591414065 instance=ExtResource("4_twnyg")]
+position = Vector2(253, 727)
 
 [node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("2_4gxqj")]
 position = Vector2(368, 896)
 scale = Vector2(0.7, 0.7)
-
-[node name="Player" parent="." unique_id=591414065 instance=ExtResource("4_twnyg")]
-position = Vector2(253, 727)

@@ -18,9 +18,10 @@ func jump():
 func sling(input: Vector2):
 	arrowSpeed = Vector2(input)
 func _ready():
-	$Timer.start(1)
-	await $Timer.timeout
-	jump()
+	while true :
+		$Timer.start(randf_range(1, 6))
+		await $Timer.timeout
+		jump()
 	
 	await $Timer.timeout
 	sling(Vector2(10,-10))
@@ -35,13 +36,14 @@ func _physics_process(delta: float) -> void:
 		$CollisionShape2D.shape.height = 70.0
 		$CollisionShape2D.shape.radius = 70.0
 		$AnimatedSprite2D.play("Roll")
+		# spin direction
 		if velocity.x < 0:
 			$AnimatedSprite2D.rotation -=1
 			$AnimatedSprite2D.flip_h = true
 		elif velocity.x > 0:
 			$AnimatedSprite2D.rotation +=1
 			$AnimatedSprite2D.flip_h = false
-	else : $AnimatedSprite2D.play("Walk")
+	elif abs(velocity.x) < 90: $AnimatedSprite2D.play("Idle")
 		
 	print("slinging",slinging)
 	if not is_on_floor():
@@ -53,9 +55,10 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.rotation=0
 		$CollisionShape2D.shape.height = 178.0
 		$CollisionShape2D.shape.radius = 67.0
-		if direction == 0:
-			velocity.x += direction * SPEED
+		
+		if direction:
 			$AnimatedSprite2D.play("Walk")
+			velocity.x += direction * SPEED
 			if direction < 0:
 				$AnimatedSprite2D.flip_h = true
 			elif direction > 0:
