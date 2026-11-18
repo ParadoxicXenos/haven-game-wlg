@@ -18,10 +18,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Backdrop5(1)" type="Sprite2D" parent="StaticBody2D" unique_id=425185759]
 position = Vector2(-0.12692189, 7.0857716)
-scale = Vector2(0.079413995, 0.34889945)
+scale = Vector2(0.019856116, 0.08723636)
 texture = ExtResource("1_n5262")
 
 [node name="Backdrop4" type="Sprite2D" parent="StaticBody2D" unique_id=1337703389]
 position = Vector2(1.1175871e-08, -7.71843)
-scale = Vector2(0.07997902, 0.29169175)
+scale = Vector2(0.019800268, 0.07221363)
 texture = ExtResource("2_mrs20")

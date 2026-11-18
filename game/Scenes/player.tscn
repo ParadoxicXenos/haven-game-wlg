@@ -4,7 +4,22 @@
 [ext_resource type="Script" uid="uid://co5efqypuqrpt" path="res://Scripts/dude.gd" id="1_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bhxocmkqydnbo" path="res://Scenes/arrow.tscn" id="3_6t5aa"]
 [ext_resource type="SpriteFrames" uid="uid://cea61ltbt44nj" path="res://Art/player_spriteframes.tres" id="5_fkybt"]
+[ext_resource type="Texture2D" uid="uid://dm4sff47ja0ut" path="res://Art/backdrop3 (1).svg" id="5_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://cd38udl83mvhe" path="res://Art/proteus21-flowtrail-115525.mp3" id="10_tx1dd"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3smsa"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1700, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+angular_velocity_min = -100.000015
+angular_velocity_max = 99.999985
+gravity = Vector3(0, 1000, 0)
+turbulence_enabled = true
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 
@@ -13,6 +28,15 @@ script = ExtResource("1_f1ek2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391 groups=["player"]]
 script = ExtResource("1_bo1nx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=644391062]
+visible = false
+position = Vector2(3, -1083)
+amount = 50
+texture = ExtResource("5_x3wgy")
+lifetime = 7.0
+visibility_rect = Rect2(-480, 790, 960, 540)
+process_material = SubResource("ParticleProcessMaterial_3smsa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=446761269]
 stream = ExtResource("10_tx1dd")
