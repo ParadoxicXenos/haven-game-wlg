@@ -57,41 +57,49 @@ func _process(delta: float) -> void:
 				charBody.canSling = false
 		
 	if charBody.controller == true:
-			if charBody.canSling == true:
-				if Input.is_action_just_pressed("LT"):
-					arrowLine.set_point_position(0,Vector2(0,0))
+		print("time left: ", $"release timer2".time_left)
+		if charBody.canSling == true:
+			if Input.is_action_just_pressed("LT"):
+				arrowLine.set_point_position(0,Vector2(0,0))
 
-				if Input.is_action_pressed("LT"):
-					Input.start_joy_vibration(0, 0.2, 0.3, 1.0)
-					charBody.canMove = false
-					arrowLine.visible = true
-					arrowHead.visible = true
-					if Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.x > 300 || controllerInput.x <-300) ||Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.y > 300 || controllerInput.y <-300) :
-						backup_input = controllerInput
-						$"release timer".start(0.3)
-					controllerInput = Input.get_vector("Rright","Rleft","Rdown","Rup")
-					controllerInput *= stickSpeed
-					arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
+			if Input.is_action_pressed("LT"):
+				Input.start_joy_vibration(0, 0.2, 0.3, 1.0)
+				charBody.canMove = false
+				arrowLine.visible = true
+				arrowHead.visible = true
+				
+				#if (Input.get_vector("Rright","Rleft","Rdown","Rup") - controllerInput < Vector(0,0) && controllerInput > Vector2 (300,300) || controllerInput < Vector2 (-300,-300)):
+				var movementDiff = controllerInput.distance_to(Input.get_vector("Rright","Rleft","Rdown","Rup") * stickSpeed)
+				#print("diff: ", movementDiff)
+				if movementDiff > 400:
+					backup_input = controllerInput
+					$"release timer2".start(0.3)
+					print("diff is big: ", movementDiff)
+				controllerInput = Input.get_vector("Rright","Rleft","Rdown","Rup")
+				controllerInput *= stickSpeed
+				arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
+				arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
+				arrowHead.look_at(playerPos)
+				arrowHead.rotation_degrees -= 90
+
+			if Input.is_action_just_released("LT"):
+				if $"release timer2".time_left > 0.0:
+					controllerInput = backup_input
+					backup_input = Vector2(0,0)
+				if controllerInput != Vector2(0,0):
+					charBody.slinging = true
+					arrowLine.visible = false
+					arrowHead.visible = false
+					charBody.arrowSpeed = controllerInput
 					arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
-					arrowHead.look_at(playerPos)
-					arrowHead.rotation_degrees -= 90
-
-				if Input.is_action_just_released("LT"):
-					if $"release timer".time_left > 0.0:
-						controllerInput = backup_input
-						backup_input = Vector2(0,0)
-					if controllerInput != Vector2(0,0):
-						charBody.slinging = true
-						arrowLine.visible = false
-						arrowHead.visible = false
-						charBody.arrowSpeed = controllerInput
-						arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
-						arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
-						controllerInput = Vector2(0,0)
-						charBody.canMove = true
-						charBody.canSling = false
-					else :
-						controllerInput = Vector2(0,0)
-						charBody.canMove = true
-						arrowLine.visible = false
-						arrowHead.visible = false
+					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
+					controllerInput = Vector2(0,0)
+					backup_input = Vector2(0,0)
+					charBody.canMove = true
+					charBody.canSling = false
+				else :
+					controllerInput = Vector2(0,0)
+					backup_input = Vector2(0,0)
+					charBody.canMove = true
+					arrowLine.visible = false
+					arrowHead.visible = false

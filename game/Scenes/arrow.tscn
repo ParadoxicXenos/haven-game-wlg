@@ -14,3 +14,7 @@ default_color = Color(0.95686275, 0.59607846, 0.4862745, 1)
 
 [node name="arrowHead" type="Sprite2D" parent="." unique_id=1446275543]
 texture = ExtResource("2_h5x2m")
+
+[node name="release timer2" type="Timer" parent="." unique_id=1766144359]
+wait_time = 0.3
+one_shot = true
