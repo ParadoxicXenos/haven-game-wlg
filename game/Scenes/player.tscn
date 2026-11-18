@@ -38,6 +38,8 @@ max_distance = 4096.0
 parent = NodePath("../..")
 charBody = NodePath("..")
 
+[node name="release timer" type="Timer" parent="CharacterBody2D/arrow" unique_id=541860608]
+
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2058571565 groups=["player"]]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true

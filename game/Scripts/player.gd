@@ -20,9 +20,7 @@ var direction: float
 func _ready():
 	if Input.get_connected_joypads().size() > 0:
 		controller = true
-	print("controller:",controller)
 func _physics_process(delta: float) -> void:
-	print("Running: ", Engine.get_frames_per_second())
 	$Camera2D/Label.text = "FPS: %d" % Engine.get_frames_per_second()
 
 	for i in range(get_slide_collision_count()):
@@ -55,7 +53,6 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = false
 	elif abs(velocity.x) < 90: $AnimatedSprite2D.play("Idle")
 		
-	print("slinging",slinging)
 	#gravity
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
@@ -117,7 +114,6 @@ func _physics_process(delta: float) -> void:
 				reflected = Vector2(velo.x-(1.8*impact*collision_normal.x),velo.y-(1.8*impact*collision_normal.y))
 				velocity=reflected
 				reflected = Vector2(0,0)
-				print(velocity)
 				if velocity.y > -105 && velocity.y < 0:
 					velocity.y = 0
 				# on a bounce reset the sling end timer
