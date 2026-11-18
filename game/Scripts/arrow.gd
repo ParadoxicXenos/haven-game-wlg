@@ -14,6 +14,8 @@ var backup_input: Vector2
 func _ready() -> void:
 	arrowLine.visible = false
 	arrowHead.visible = false
+	controllerInput = Vector2(0,0)
+	backup_input = Vector2(0,0)
 	#arrowHead.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,9 +66,9 @@ func _process(delta: float) -> void:
 					charBody.canMove = false
 					arrowLine.visible = true
 					arrowHead.visible = true
-					if Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0):
+					if Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.x > 100 || controllerInput.x <-100) ||Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.y > 100 || controllerInput.y <-100) :
 						backup_input = controllerInput
-						$"release timer".start(0.5)
+						$"release timer".start(0.3)
 					controllerInput = Input.get_vector("Rright","Rleft","Rdown","Rup")
 					controllerInput *= stickSpeed
 					arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
@@ -77,11 +79,13 @@ func _process(delta: float) -> void:
 				if Input.is_action_just_released("LT"):
 					if $"release timer".time_left > 0.0:
 						controllerInput = backup_input
+						backup_input = Vector2(0,0)
 					charBody.slinging = true
 					arrowLine.visible = false
 					arrowHead.visible = false
 					charBody.arrowSpeed = controllerInput
 					arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
 					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
+					controllerInput = Vector2(0,0)
 					charBody.canMove = true
 					charBody.canSling = false

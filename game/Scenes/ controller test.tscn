@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c1x3agmoj76cc"]
+
+[ext_resource type="Script" uid="uid://26go8lvfhpik" path="res://Scripts/controller_test.gd" id="1_kwqbw"]
+
+[node name="Node2D" type="Node2D" unique_id=1072964895]
+script = ExtResource("1_kwqbw")
+
+[node name="leftlabel" type="Label" parent="." unique_id=1401517845]
+offset_left = 598.0
+offset_top = 427.0
+offset_right = 1295.0
+offset_bottom = 694.0
+theme_override_font_sizes/font_size = 73
+text = "10000,10000"
+
+[node name="rightlabel" type="Label" parent="." unique_id=2032494840]
+offset_left = 603.0
+offset_top = 554.0
+offset_right = 1300.0
+offset_bottom = 821.0
+theme_override_font_sizes/font_size = 73
+text = "10000,10000"
