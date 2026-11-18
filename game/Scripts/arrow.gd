@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 					charBody.canMove = false
 					arrowLine.visible = true
 					arrowHead.visible = true
-					if Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.x > 100 || controllerInput.x <-100) ||Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.y > 100 || controllerInput.y <-100) :
+					if Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.x > 300 || controllerInput.x <-300) ||Input.get_vector("Rright","Rleft","Rdown","Rup")-controllerInput < Vector2(0,0)&& (controllerInput.y > 300 || controllerInput.y <-300) :
 						backup_input = controllerInput
 						$"release timer".start(0.3)
 					controllerInput = Input.get_vector("Rright","Rleft","Rdown","Rup")
@@ -80,12 +80,13 @@ func _process(delta: float) -> void:
 					if $"release timer".time_left > 0.0:
 						controllerInput = backup_input
 						backup_input = Vector2(0,0)
-					charBody.slinging = true
-					arrowLine.visible = false
-					arrowHead.visible = false
-					charBody.arrowSpeed = controllerInput
-					arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
-					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
-					controllerInput = Vector2(0,0)
-					charBody.canMove = true
-					charBody.canSling = false
+					if controllerInput != Vector2(0,0):
+						charBody.slinging = true
+						arrowLine.visible = false
+						arrowHead.visible = false
+						charBody.arrowSpeed = controllerInput
+						arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
+						arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
+						controllerInput = Vector2(0,0)
+						charBody.canMove = true
+						charBody.canSling = false
