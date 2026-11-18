@@ -90,3 +90,8 @@ func _process(delta: float) -> void:
 						controllerInput = Vector2(0,0)
 						charBody.canMove = true
 						charBody.canSling = false
+					else :
+						controllerInput = Vector2(0,0)
+						charBody.canMove = true
+						arrowLine.visible = false
+						arrowHead.visible = false
