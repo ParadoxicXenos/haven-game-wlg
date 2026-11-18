@@ -22,6 +22,9 @@ func _ready():
 		controller = true
 	print("controller:",controller)
 func _physics_process(delta: float) -> void:
+	print("Running: ", Engine.get_frames_per_second())
+	$Camera2D/Label.text = "FPS: %d" % Engine.get_frames_per_second()
+
 	for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()

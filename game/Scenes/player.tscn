@@ -7,20 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dm4sff47ja0ut" path="res://Art/backdrop3 (1).svg" id="5_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://cd38udl83mvhe" path="res://Art/proteus21-flowtrail-115525.mp3" id="10_tx1dd"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3smsa"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1700, 1, 1)
-angle_min = -720.0
-angle_max = 720.0
-angular_velocity_min = -100.000015
-angular_velocity_max = 99.999985
-gravity = Vector3(0, 1000, 0)
-turbulence_enabled = true
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 
 [node name="Player" type="Node2D" unique_id=591414065 groups=["player"]]
@@ -29,14 +15,19 @@ script = ExtResource("1_f1ek2")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=837976391 groups=["player"]]
 script = ExtResource("1_bo1nx")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D" unique_id=644391062]
-visible = false
+[node name="GPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D" unique_id=355273708]
 position = Vector2(3, -1083)
 amount = 50
 texture = ExtResource("5_x3wgy")
-lifetime = 7.0
-visibility_rect = Rect2(-480, 790, 960, 540)
-process_material = SubResource("ParticleProcessMaterial_3smsa")
+lifetime = 8.0
+randomness = 0.49
+fixed_fps = 60
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(1700, 1)
+gravity = Vector2(0, 750)
+angle_min = -720.0
+angle_max = 720.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=446761269]
 stream = ExtResource("10_tx1dd")
@@ -51,6 +42,15 @@ charBody = NodePath("..")
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Label" type="Label" parent="CharacterBody2D/Camera2D" unique_id=1587504499]
+offset_left = -159.0
+offset_top = -197.0
+offset_right = 167.0
+offset_bottom = -114.0
+text = "FPS"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=350821104 groups=["player"]]
 scale = Vector2(0.6102941, 0.61029416)
