@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://binmtyp4pa10c" path="res://Scripts/finito.gd" id="1_5yebs"]
 [ext_resource type="Texture2D" uid="uid://dl7iogfl1gib0" path="res://Art/image.png" id="1_61x37"]
 [ext_resource type="Script" uid="uid://brxetbfgho8k2" path="res://Scripts/button_mover.gd" id="3_ytl2y"]
-[ext_resource type="Texture2D" uid="uid://byhxsfbvp44x" path="res://Art/New Button.svg" id="4_fxtqx"]
-[ext_resource type="Texture2D" uid="uid://dqp146yl4ryr" path="res://Art/ButtonPress (2).svg" id="4_ytl2y"]
-[ext_resource type="Texture2D" uid="uid://du67v24kyf6t3" path="res://Art/ButtonHover (2).svg" id="5_fxtqx"]
+[ext_resource type="Texture2D" uid="uid://cjvp7wdxsvf41" path="res://Art/New Button1.svg" id="4_6j0bj"]
+[ext_resource type="Texture2D" uid="uid://c8a0wqyw575sb" path="res://Art/New Button2.svg" id="5_ytl2y"]
 
 [sub_resource type="Theme" id="Theme_g4v7s"]
 
@@ -39,9 +38,9 @@ offset_top = -123.0
 offset_right = 312.0
 offset_bottom = 124.0
 theme = SubResource("Theme_g4v7s")
-texture_normal = ExtResource("4_fxtqx")
-texture_pressed = ExtResource("4_ytl2y")
-texture_hover = ExtResource("5_fxtqx")
+texture_normal = ExtResource("4_6j0bj")
+texture_pressed = ExtResource("4_6j0bj")
+texture_hover = ExtResource("5_ytl2y")
 stretch_mode = 0
 
 [connection signal="pressed" from="Button Mover/Restart Button" to="." method="_on_texture_button_pressed"]

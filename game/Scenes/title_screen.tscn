@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dc2kjw0s0lthc" path="res://Art/Title3.svg" id="7_0061g"]
 [ext_resource type="Texture2D" uid="uid://1blchau4llq5" path="res://Art/Title4.svg" id="8_8mikk"]
 [ext_resource type="Script" uid="uid://ljmqo8f6bh2b" path="res://Scripts/animated_sprite_2d.gd" id="9_0061g"]
-[ext_resource type="Texture2D" uid="uid://ck4kb8w10qb21" path="res://Art/ButtonNormal (2).svg" id="10_w5sh6"]
-[ext_resource type="Texture2D" uid="uid://dqp146yl4ryr" path="res://Art/ButtonPress (2).svg" id="11_o1e67"]
-[ext_resource type="Texture2D" uid="uid://du67v24kyf6t3" path="res://Art/ButtonHover (2).svg" id="12_ycay6"]
+[ext_resource type="Texture2D" uid="uid://cjvp7wdxsvf41" path="res://Art/New Button1.svg" id="10_sqelc"]
+[ext_resource type="Texture2D" uid="uid://c8a0wqyw575sb" path="res://Art/New Button2.svg" id="11_w5sh6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u0f01"]
 animations = [{
@@ -78,8 +77,8 @@ offset_left = 361.0
 offset_top = 553.0
 offset_right = 843.0
 offset_bottom = 772.0
-texture_normal = ExtResource("10_w5sh6")
-texture_pressed = ExtResource("11_o1e67")
-texture_hover = ExtResource("12_ycay6")
+texture_normal = ExtResource("10_sqelc")
+texture_pressed = ExtResource("10_sqelc")
+texture_hover = ExtResource("11_w5sh6")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
