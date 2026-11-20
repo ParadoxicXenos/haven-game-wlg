@@ -48,13 +48,20 @@ func _process(delta: float) -> void:
 				# If bigger than 1000 it needs to clamp
 				if (mouseVec.length() > stickSpeed) :
 					mouseVec = mouseVec.normalized() * stickSpeed
-				arrowLine.visible = false
-				arrowHead.visible = false
-				charBody.arrowSpeed = mouseVec
-				arrowHead.position = Vector2(0,0) + mouseVec * arrowMult
-				arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
-				charBody.canMove = true
-				charBody.canSling = false
+				if mouseVec != Vector2(0,0):
+					arrowLine.visible = false
+					arrowHead.visible = false
+					charBody.arrowSpeed = mouseVec
+					arrowHead.position = Vector2(0,0) + mouseVec * arrowMult
+					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
+					charBody.canMove = true
+					charBody.canSling = false
+				elif mouseVec == Vector2(0,0):
+					arrowLine.visible = false
+					arrowHead.visible = false
+					mouseVec = 0
+					charBody.canMove = true
+				
 		
 	if charBody.controller == true:
 		print("time left: ", $"release timer2".time_left)
