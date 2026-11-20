@@ -2,7 +2,7 @@ extends Node2D
 
 @export var parent : Node2D
 var OGmousePos
-@export var stickSpeed = 1000
+@export var stickMult = 1000
 const arrowMult = 0.5
 @onready var arrowLine = $arrowLine
 @onready var arrowHead = $arrowHead
@@ -20,34 +20,37 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if 1==1:
-		playerPos = charBody.global_position
+	print(stickMult)
+	
+	playerPos = charBody.global_position
 
-		if charBody.canSling:
-			if Input.is_action_just_pressed("click"):
-				OGmousePos = get_global_mouse_position()
-				arrowLine.set_point_position(0,Vector2(0,0))
-				
-				
-			elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
-				charBody.canMove = false
-				arrowLine.visible = true
-				arrowHead.visible = true
-				var mouseVec= OGmousePos-get_global_mouse_position()
-				# If bigger than 1000 it needs to clamp
-				if (mouseVec.length() > stickSpeed) :
-					mouseVec = mouseVec.normalized() * stickSpeed
-				arrowLine.set_point_position(1,Vector2(0,0)+mouseVec*arrowMult)
-				arrowHead.position = Vector2(0,0) + mouseVec * arrowMult
-				arrowHead.look_at(playerPos)
-				arrowHead.rotation_degrees -= 90
+	if charBody.canSling:
+		if Input.is_action_just_pressed("click"):
+			OGmousePos = get_global_mouse_position()
+			arrowLine.set_point_position(0,Vector2(0,0))
+			
+			
+		elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
+			charBody.canMove = false
+			arrowLine.visible = true
+			arrowHead.visible = true
+			var mouseVec= OGmousePos-get_global_mouse_position()
+			# If bigger than 1000 it needs to clamp
+			if (mouseVec.length() > stickMult) :
+				mouseVec = mouseVec.normalized() * stickMult
+			arrowLine.set_point_position(1,Vector2(0,0)+mouseVec*arrowMult)
+			arrowHead.position = Vector2(0,0) + mouseVec * arrowMult
+			arrowHead.look_at(playerPos)
+			arrowHead.rotation_degrees -= 90
 
-			if Input.is_action_just_released("click"):
+		if Input.is_action_just_released("click"):
+			var mouseVec= OGmousePos-get_global_mouse_position()
+			# allow the player to cancel a sling by leaving the mouse where it started
+			if ( round(abs(mouseVec.x)) > 40 || round(abs(mouseVec.y)) > 40):
 				charBody.slinging = true
-				var mouseVec= OGmousePos-get_global_mouse_position()
 				# If bigger than 1000 it needs to clamp
-				if (mouseVec.length() > stickSpeed) :
-					mouseVec = mouseVec.normalized() * stickSpeed
+				if (mouseVec.length() > stickMult) :
+					mouseVec = mouseVec.normalized() * stickMult
 				if mouseVec != Vector2(0,0):
 					arrowLine.visible = false
 					arrowHead.visible = false
@@ -75,15 +78,14 @@ func _process(delta: float) -> void:
 				arrowLine.visible = true
 				arrowHead.visible = true
 				
-				#if (Input.get_vector("Rright","Rleft","Rdown","Rup") - controllerInput < Vector(0,0) && controllerInput > Vector2 (300,300) || controllerInput < Vector2 (-300,-300)):
-				var movementDiff = controllerInput.distance_to(Input.get_vector("Rright","Rleft","Rdown","Rup") * stickSpeed)
+				var movementDiff = controllerInput.distance_to(Input.get_vector("Rright","Rleft","Rdown","Rup") * stickMult)
 				#print("diff: ", movementDiff)
 				if movementDiff > 400:
 					backup_input = controllerInput
 					$"release timer2".start(0.3)
 					print("diff is big: ", movementDiff)
 				controllerInput = Input.get_vector("Rright","Rleft","Rdown","Rup")
-				controllerInput *= stickSpeed
+				controllerInput *= stickMult
 				arrowLine.set_point_position(1,Vector2(0,0)+controllerInput*arrowMult)
 				arrowHead.position = Vector2(0,0) + controllerInput * arrowMult
 				arrowHead.look_at(playerPos)

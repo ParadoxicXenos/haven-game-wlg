@@ -19,7 +19,7 @@ script = ExtResource("1_bo1nx")
 position = Vector2(3, -1083)
 amount = 70
 texture = ExtResource("5_x3wgy")
-lifetime = 8.0
+lifetime = 9.0
 randomness = 0.49
 fixed_fps = 60
 draw_order = 1
@@ -42,6 +42,7 @@ max_distance = 4096.0
 
 [node name="arrow" parent="CharacterBody2D" unique_id=775735066 node_paths=PackedStringArray("parent", "charBody") groups=["player"] instance=ExtResource("3_6t5aa")]
 parent = NodePath("../..")
+stickSpeed = null
 charBody = NodePath("..")
 
 [node name="release timer" type="Timer" parent="CharacterBody2D/arrow" unique_id=541860608]
