@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://drji65bb1rl"]
+
+[ext_resource type="Shader" uid="uid://d0kcuni0a7l6j" path="res://plant_test.gdshader" id="1_o13f6"]
+[ext_resource type="Texture2D" uid="uid://c0oyxptw7buov" path="res://Art/plants & deco/BrownMushroom1 (1).svg" id="2_mwoav"]
+[ext_resource type="Texture2D" uid="uid://bl8u6n7rlks0" path="res://Art/plants & deco/BrownMushroom2 (1).svg" id="3_ayfxv"]
+[ext_resource type="Texture2D" uid="uid://bx47gf0od23a3" path="res://Art/plants & deco/Bush (1).svg" id="4_k2g35"]
+[ext_resource type="Texture2D" uid="uid://bcd4r4lg077xq" path="res://Art/plants & deco/Grass1 (2).svg" id="5_3bqhf"]
+[ext_resource type="Texture2D" uid="uid://cmxkifi2ev40g" path="res://Art/plants & deco/Plant (5).svg" id="6_pmh7o"]
+[ext_resource type="Texture2D" uid="uid://ub1gyrgktgqo" path="res://Art/plants & deco/RedMushroom1 (1).svg" id="7_cqrg4"]
+[ext_resource type="Texture2D" uid="uid://sijwaoigcth8" path="res://Art/plants & deco/RedMushroom2 (1).svg" id="8_vgbki"]
+[ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="9_752sv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pahvb"]
+shader = ExtResource("1_o13f6")
+
+[node name="Plant Test" type="Node2D" unique_id=86835074]
+
+[node name="Plant" type="Sprite2D" parent="." unique_id=1431788884]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(233, 473)
+texture = ExtResource("2_mwoav")
+
+[node name="Plant2" type="Sprite2D" parent="." unique_id=1801971759]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(781, 469)
+texture = ExtResource("3_ayfxv")
+
+[node name="Plant3" type="Sprite2D" parent="." unique_id=617211494]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(903, 464)
+texture = ExtResource("4_k2g35")
+
+[node name="Plant4" type="Sprite2D" parent="." unique_id=285341204]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1353, 461)
+texture = ExtResource("5_3bqhf")
+
+[node name="Plant5" type="Sprite2D" parent="." unique_id=1935643438]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1504, 472)
+texture = ExtResource("6_pmh7o")
+
+[node name="Plant6" type="Sprite2D" parent="." unique_id=564389547]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(494, 413)
+texture = ExtResource("7_cqrg4")
+
+[node name="Plant7" type="Sprite2D" parent="." unique_id=1155997167]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1122, 412)
+texture = ExtResource("8_vgbki")
+
+[node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("9_752sv")]
+position = Vector2(1010, 722)
+
+[node name="Platform2" parent="." unique_id=486331676 instance=ExtResource("9_752sv")]
+position = Vector2(1604, 724)
+
+[node name="Platform3" parent="." unique_id=274617303 instance=ExtResource("9_752sv")]
+position = Vector2(396, 724)
