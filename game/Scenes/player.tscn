@@ -42,7 +42,6 @@ max_distance = 4096.0
 
 [node name="arrow" parent="CharacterBody2D" unique_id=775735066 node_paths=PackedStringArray("parent", "charBody") groups=["player"] instance=ExtResource("3_6t5aa")]
 parent = NodePath("../..")
-stickSpeed = null
 charBody = NodePath("..")
 
 [node name="release timer" type="Timer" parent="CharacterBody2D/arrow" unique_id=541860608]

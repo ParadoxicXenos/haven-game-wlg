@@ -20,7 +20,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(stickMult)
 	
 	playerPos = charBody.global_position
 
@@ -28,8 +27,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("click"):
 			OGmousePos = get_global_mouse_position()
 			arrowLine.set_point_position(0,Vector2(0,0))
-			
-			
+
 		elif Input.is_action_pressed("click") && Input.is_action_just_pressed("click") == false:
 			charBody.canMove = false
 			arrowLine.visible = true
@@ -44,9 +42,12 @@ func _process(delta: float) -> void:
 			arrowHead.rotation_degrees -= 90
 
 		if Input.is_action_just_released("click"):
+			print("release")
 			var mouseVec= OGmousePos-get_global_mouse_position()
 			# allow the player to cancel a sling by leaving the mouse where it started
-			if ( round(abs(mouseVec.x)) > 40 || round(abs(mouseVec.y)) > 40):
+			if ( round(abs(mouseVec.x)) > 40 || round(abs(mouseVec.y)) > 40) || charBody.slingCancels > 2:
+				print("first_if_approved")
+				charBody.slingCancels = 0
 				charBody.slinging = true
 				# If bigger than 1000 it needs to clamp
 				if (mouseVec.length() > stickMult) :
@@ -59,12 +60,13 @@ func _process(delta: float) -> void:
 					arrowHead.global_rotation += arrowHead.get_angle_to(Vector2(0,0))
 					charBody.canMove = true
 					charBody.canSling = false
-				elif mouseVec == Vector2(0,0):
-					arrowLine.visible = false
-					arrowHead.visible = false
-					mouseVec = 0
-					charBody.canMove = true
-				
+			else:
+				print("else triggered")
+				arrowLine.visible = false
+				arrowHead.visible = false
+				charBody.canMove = true
+				charBody.slingCancels += 1
+				print("cancels",charBody.slingCancels)
 		
 	if charBody.controller == true:
 		print("time left: ", $"release timer2".time_left)

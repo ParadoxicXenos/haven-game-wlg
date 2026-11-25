@@ -17,6 +17,7 @@ var collision_point:Vector2
 var impact
 var controller = false
 var direction: float
+var slingCancels = 0
 func _ready():
 	if Input.get_connected_joypads().size() > 0:
 		controller = true
@@ -80,6 +81,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= 0.9
 
 	if is_on_floor() :
+		slingCancels = 0
 		canSling = true
 		
 	# end sling 0.5 seconds after last collisiom

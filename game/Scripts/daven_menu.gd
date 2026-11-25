@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = false
 	elif abs(velocity.x) < 90: $AnimatedSprite2D.play("Idle")
 		
-	print("slinging",slinging)
 	if not is_on_floor():
 		velocity += Vector2(0, GRAVITY) * delta
 
