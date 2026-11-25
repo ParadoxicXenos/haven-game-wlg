@@ -103,11 +103,12 @@ position = Vector2(1101, 801)
 texture = ExtResource("6_uqe4p")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2083241981]
-position = Vector2(880, 767)
+position = Vector2(880, 863)
 amount = 10
 texture = ExtResource("10_3thj1")
+lifetime = 0.86
 emission_shape = 3
-emission_rect_extents = Vector2(500, 250)
+emission_rect_extents = Vector2(500, 100)
 gravity = Vector2(0, -500)
 color_ramp = SubResource("Gradient_tb8wi")
 
