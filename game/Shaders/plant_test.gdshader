@@ -1,12 +1,15 @@
 shader_type canvas_item;
 
+varying vec2 spritePos;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
+	spritePos = (MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0)).xy;
 }
 
 void fragment() {
 	float windStrength = 0.8;
-	float wind =  sin(TIME) * sin(TIME * 2.83);
+	float wind =  sin(TIME - (spritePos.x / -500.0)) * sin(TIME * 2.83 - (spritePos.x / -500.0));
 	
 	float angle = distance(vec2(0.5, 1), vec2(UV)) * wind * windStrength;
 	

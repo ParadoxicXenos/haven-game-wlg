@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bhgb3ra4248mk"]
+
+[ext_resource type="Shader" uid="uid://d0kcuni0a7l6j" path="res://Shaders/plant_test.gdshader" id="1_qcheo"]
+[ext_resource type="Texture2D" uid="uid://c0oyxptw7buov" path="res://Art/plants & deco/BrownMushroom1 (1).svg" id="2_qcheo"]
+[ext_resource type="Texture2D" uid="uid://bl8u6n7rlks0" path="res://Art/plants & deco/BrownMushroom2 (1).svg" id="3_d4m1i"]
+[ext_resource type="Texture2D" uid="uid://bx47gf0od23a3" path="res://Art/plants & deco/Bush (1).svg" id="4_3thj1"]
+[ext_resource type="Texture2D" uid="uid://bcd4r4lg077xq" path="res://Art/plants & deco/Grass1 (2).svg" id="5_sgsje"]
+[ext_resource type="Texture2D" uid="uid://cmxkifi2ev40g" path="res://Art/plants & deco/Plant (5).svg" id="6_uqe4p"]
+[ext_resource type="Texture2D" uid="uid://ub1gyrgktgqo" path="res://Art/plants & deco/RedMushroom1 (1).svg" id="7_lp6qv"]
+[ext_resource type="Texture2D" uid="uid://sijwaoigcth8" path="res://Art/plants & deco/RedMushroom2 (1).svg" id="8_hq7pu"]
+[ext_resource type="PackedScene" uid="uid://c5ir2p247yl0x" path="res://Scenes/platform.tscn" id="9_ct27o"]
+[ext_resource type="Texture2D" uid="uid://dv7voqtv1asea" path="res://Art/water stuff/Bubble1.svg" id="10_3thj1"]
+[ext_resource type="Shader" uid="uid://b04cqkmbb53xs" path="res://Shaders/Water.gdshader" id="10_qcheo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pahvb"]
+shader = ExtResource("1_qcheo")
+
+[sub_resource type="Gradient" id="Gradient_tb8wi"]
+offsets = PackedFloat32Array(0, 0.14385965, 0.82807016, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_j0p37"]
+offsets = PackedFloat32Array(0, 0.5330739, 0.8793774, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.23735408, 0.23735408, 0.23735408, 1, 0.6020978, 0.6020978, 0.6020978, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ct27o"]
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_hq7pu"]
+noise = SubResource("FastNoiseLite_ct27o")
+color_ramp = SubResource("Gradient_j0p37")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0f01"]
+shader = ExtResource("10_qcheo")
+shader_parameter/noise_texture_1 = SubResource("NoiseTexture3D_hq7pu")
+
+[node name="Plant Test" type="Node2D" unique_id=86835074]
+
+[node name="Plant" type="Sprite2D" parent="." unique_id=1431788884]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(187, 94)
+texture = ExtResource("2_qcheo")
+
+[node name="Plant2" type="Sprite2D" parent="." unique_id=1801971759]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(671, 90)
+texture = ExtResource("3_d4m1i")
+
+[node name="Plant3" type="Sprite2D" parent="." unique_id=617211494]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(827.5, 88.5)
+texture = ExtResource("4_3thj1")
+
+[node name="Plant4" type="Sprite2D" parent="." unique_id=285341204]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1300, 76)
+texture = ExtResource("5_sgsje")
+
+[node name="Plant5" type="Sprite2D" parent="." unique_id=1935643438]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1464, 97)
+texture = ExtResource("6_uqe4p")
+
+[node name="Plant6" type="Sprite2D" parent="." unique_id=564389547]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(452, 44)
+texture = ExtResource("7_lp6qv")
+
+[node name="Plant7" type="Sprite2D" parent="." unique_id=1155997167]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1073, 40)
+texture = ExtResource("8_hq7pu")
+
+[node name="Platform" parent="." unique_id=1254454245 instance=ExtResource("9_ct27o")]
+position = Vector2(934.5, 346.5)
+
+[node name="Platform2" parent="." unique_id=486331676 instance=ExtResource("9_ct27o")]
+position = Vector2(1528.5, 348.5)
+
+[node name="Platform3" parent="." unique_id=274617303 instance=ExtResource("9_ct27o")]
+position = Vector2(351.5, 345.5)
+
+[node name="Platform4" parent="." unique_id=551391726 instance=ExtResource("9_ct27o")]
+position = Vector2(579, 1044)
+
+[node name="Platform5" parent="." unique_id=1664287872 instance=ExtResource("9_ct27o")]
+position = Vector2(1182, 1044)
+
+[node name="Plant8" type="Sprite2D" parent="." unique_id=682006393]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(706, 811)
+texture = ExtResource("8_hq7pu")
+
+[node name="Plant9" type="Sprite2D" parent="." unique_id=91582902]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(937, 783)
+texture = ExtResource("6_uqe4p")
+
+[node name="Plant10" type="Sprite2D" parent="." unique_id=676329581]
+material = SubResource("ShaderMaterial_pahvb")
+position = Vector2(1101, 801)
+texture = ExtResource("6_uqe4p")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2083241981]
+position = Vector2(880, 767)
+amount = 10
+texture = ExtResource("10_3thj1")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 250)
+gravity = Vector2(0, -500)
+color_ramp = SubResource("Gradient_tb8wi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=791136988]
+material = SubResource("ShaderMaterial_u0f01")
+offset_left = 377.0
+offset_top = 517.0
+offset_right = 1378.0
+offset_bottom = 1021.0
+
+[node name="Platform6" parent="." unique_id=2020407591 instance=ExtResource("9_ct27o")]
+position = Vector2(577, 1087.9999)
+rotation = -3.0115633
+
+[node name="Platform7" parent="." unique_id=177535530 instance=ExtResource("9_ct27o")]
+position = Vector2(1190.9999, 1091)
+rotation = 3.0289268
+
+[node name="Platform8" parent="." unique_id=980465599 instance=ExtResource("9_ct27o")]
+position = Vector2(1482, 844.00006)
+rotation = 1.5261577
+
+[node name="Platform9" parent="." unique_id=953950781 instance=ExtResource("9_ct27o")]
+position = Vector2(300, 844.00006)
+rotation = -1.5872874

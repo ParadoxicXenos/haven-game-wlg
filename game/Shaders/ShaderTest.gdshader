@@ -10,7 +10,7 @@ void fragment() {
 	float blurDiv = 1000.0;
 	float angle = radians(TIME * 100.0);
 	
-	vec2 distortedUV = UV;
+	vec2 distortedUV = SCREEN_UV;
 	//distortedUV -= UV.x;
 	vec4 blurVal = textureLod(screen_texture, distortedUV, 0.0);
 	vec4 sampleColor;
