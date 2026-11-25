@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dulj3s1yhqred" path="res://Art/backdrop5 (1).svg" id="1_n5262"]
 [ext_resource type="Texture2D" uid="uid://bufq3dl5f8o6i" path="res://Art/backdrop4.svg" id="2_mrs20"]
+[ext_resource type="Texture2D" uid="uid://ckah6xjcpfjkl" path="res://Art/plants & deco/costume14.svg" id="3_mrs20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -17,11 +18,18 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=375712848]
 
 [node name="Backdrop5(1)" type="Sprite2D" parent="StaticBody2D" unique_id=425185759]
+visible = false
 position = Vector2(-0.12692189, 7.0857716)
 scale = Vector2(0.019856116, 0.08723636)
 texture = ExtResource("1_n5262")
 
 [node name="Backdrop4" type="Sprite2D" parent="StaticBody2D" unique_id=1337703389]
+visible = false
 position = Vector2(1.1175871e-08, -7.71843)
 scale = Vector2(0.019800268, 0.07221363)
 texture = ExtResource("2_mrs20")
+
+[node name="Costume14" type="Sprite2D" parent="." unique_id=1533606579]
+position = Vector2(-9, 7.0000005)
+scale = Vector2(0.93438184, 0.93438184)
+texture = ExtResource("3_mrs20")
