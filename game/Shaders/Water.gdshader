@@ -31,5 +31,11 @@ void fragment() {
 		bgTexture.a = 0.0;
 	}
 	
+	if (UV.y < ((sin(TIME * waveSpeed * 1.6 + world_position.x * 0.02) * sin(TIME * waveSpeed * 1.4  + world_position.x * 0.00923) * sin(TIME * waveSpeed + world_position.x * 0.0221) + 1.0) / 30.0) + 0.034){
+		bgTexture.r += 0.4;
+		bgTexture.g += 0.4;
+		bgTexture.b += 0.4;
+	}
+	
 	COLOR = bgTexture;
 }
