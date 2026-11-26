@@ -29,7 +29,7 @@ position = Vector2(1.1175871e-08, -7.71843)
 scale = Vector2(0.019800268, 0.07221363)
 texture = ExtResource("2_mrs20")
 
-[node name="Costume14" type="Sprite2D" parent="." unique_id=1533606579]
-position = Vector2(-9, 7.0000005)
-scale = Vector2(0.93438184, 0.93438184)
+[node name="Costume14" type="Sprite2D" parent="StaticBody2D" unique_id=1533606579]
+position = Vector2(-0.28557426, 0.88572156)
+scale = Vector2(0.029648382, 0.118228875)
 texture = ExtResource("3_mrs20")
